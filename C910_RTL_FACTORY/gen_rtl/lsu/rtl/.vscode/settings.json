@@ -1,0 +1,14 @@
+{
+  "[verilog]": {
+    "editor.renderValidationDecorations": "off"
+  },
+  "[systemverilog]": {
+    "editor.renderValidationDecorations": "off"
+  },
+  "[verilogheader]": {
+    "editor.renderValidationDecorations": "off"
+  },
+  "[systemverilogheader]": {
+    "editor.renderValidationDecorations": "off"
+  }
+}
