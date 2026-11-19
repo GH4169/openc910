@@ -14,7 +14,7 @@ limitations under the License.
 */
 
 // &ModuleBeg; @37
-module ct_lsu_wmb(
+module ct_lsu_wmb(// {{{
   amr_l2_mem_set,
   biu_lsu_b_id,
   biu_lsu_b_resp,
@@ -253,10 +253,10 @@ module ct_lsu_wmb(
   wmb_write_ptr_encode,
   wmb_write_req_addr,
   wmb_write_req_icc
-);
+);// }}}
 
 // &Ports; @38
-input            amr_l2_mem_set;                              
+input            amr_l2_mem_set;                              // {{{
 input   [4  :0]  biu_lsu_b_id;                                
 input   [1  :0]  biu_lsu_b_resp;                              
 input            biu_lsu_b_vld;                               
@@ -493,7 +493,7 @@ output           wmb_vb_set_way_mode;
 output  [7  :0]  wmb_write_ptr;                               
 output  [2  :0]  wmb_write_ptr_encode;                        
 output  [39 :0]  wmb_write_req_addr;                          
-output           wmb_write_req_icc;                           
+output           wmb_write_req_icc;                           // }}}
 
 // &Regs; @39
 reg     [39 :0]  wmb_biu_ar_addr;                             

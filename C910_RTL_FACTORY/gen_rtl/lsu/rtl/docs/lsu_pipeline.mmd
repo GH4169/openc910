@@ -1,0 +1,27 @@
+flowchart TB
+  classDef source fill:#f7f4ef,stroke:#8a7968,color:#241f1a
+  classDef stage fill:#e9f2ff,stroke:#3977bf,color:#102a43
+  classDef queue fill:#fff5df,stroke:#c58a26,color:#4a3108
+  classDef result fill:#e4f7f1,stroke:#258f77,color:#123b32
+  I["IDU pipe3\nbase + offset + iid + size"]:::source --> A["LD AG\nEA / align / MMU"]:::stage
+  A --> D["LD DC\ncache tag + SQ/WMB dependency"]:::stage
+  D --> DA["LD DA\ncache data / SQ fwd / WMB fwd / RB"]:::stage
+  DA --> WB["LD WB\nrotate + sign/zero extend"]:::result
+  WB --> R["IDU writeback\npreg/vreg data + valid"]:::result
+  DA --> RB2["RB\ncreate or merge outstanding read"]:::queue
+  RB2 --> LF["LFB\nlinefill or replay return"]:::queue
+  LF --> DA
+  D --> LQ2["LQ\nexecuted-load age record"]:::queue
+  LQ2 -.-> DA
+
+  I2["IDU pipe4\nstore addr + iid + attributes"]:::source --> SA["ST AG\nEA / align / MMU"]:::stage
+  SA --> SD["ST DC\nSQ create eligibility"]:::stage
+  SD --> SDA["ST DA\ntag/dirty/dep + replay"]:::stage
+  SDA --> SWB["ST WB\ncmplt / expt → RTU"]:::result
+  I3["IDU pipe5\nstore data + SDIQ entry"]:::source --> SX["SD EX1\nrotate / align store data"]:::stage
+  SX --> SQ2["SQ\naddress + data + byte enables"]:::queue
+  SD --> SQ2
+  SQ2 -->|RTU commit + data ready| CE["WMB CE\nnew entry or merge"]:::queue
+  CE --> W["WMB\nD-cache write or BIU write"]:::queue
+  SQ2 -.->|store-to-load forwarding| DA
+  SDA -->|miss / non-cacheable| RB2

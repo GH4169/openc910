@@ -29,7 +29,7 @@ limitations under the License.
 // &Depend("sync_level2level.v"); @37
 // &Depend("plic_sec_busif.v"); @39
 // &ModuleBeg; @41
-module openC910(
+module openC910( // {{{
   axim_clk_en,
   biu_pad_araddr,
   biu_pad_arburst,
@@ -121,10 +121,10 @@ module openC910(
   pad_yy_scan_mode,
   pad_yy_scan_rst_b,
   pll_cpu_clk
-);
+); // }}}
 
 // &Ports("compare", "../../../gen_rtl/cpu/rtl/mp_top_golden_port.v"); @42
-input            axim_clk_en;                   
+input            axim_clk_en;                   // {{{
 input            pad_biu_arready;               
 input            pad_biu_awready;               
 input   [7  :0]  pad_biu_bid;                   
@@ -214,13 +214,13 @@ output           cpu_debug_port;
 output           cpu_pad_l2cache_flush_done;    
 output           cpu_pad_no_op;                 
 output           had_pad_jtg_tdo;               
-output           had_pad_jtg_tdo_en;            
+output           had_pad_jtg_tdo_en;            // }}}
 
 //&Ports;
 // &Regs; @44
 
 // &Wires; @45
-wire             apb_clk;                       
+wire             apb_clk;                       // {{{
 wire             apb_clk_en;                    
 wire             apbif_had_pctrace_inv;         
 wire             apbrst_b;                      
@@ -683,7 +683,7 @@ wire             sysio_piu1_ss_int;
 wire             sysio_piu1_st_int;             
 wire    [39 :0]  sysio_xx_apb_base;             
 wire    [63 :0]  sysio_xx_time;                 
-wire             trst_b;                        
+wire             trst_b;                        // }}}
 
 
 
@@ -692,7 +692,7 @@ wire             trst_b;
 //==========================================================
 // &Instance("ct_rmu_top","x_rmu_top"); @66
 // &Instance("ct_rmu_top_dummy", "x_rmu_top"); @68
-ct_rmu_top_dummy  x_rmu_top (
+ct_rmu_top_dummy  x_rmu_top (// {{{
   .apb_clk    (apb_clk   ),
   .apbrst_b   (apbrst_b  ),
   .penable    (penable   ),
@@ -700,7 +700,7 @@ ct_rmu_top_dummy  x_rmu_top (
   .prdata_rmr (prdata_rmr),
   .pready_rmr (pready_rmr),
   .psel_rmr   (psel_rmr  )
-);
+);// }}}
 
 //==========================================================
 //  PMU port
@@ -720,7 +720,7 @@ ct_rmu_top_dummy  x_rmu_top (
 // &ConnRule(s/cp0_/core0_/); @95
 // &ConnRule(s/^x_/core0_/); @96
 // &Instance("ct_top", "x_ct_top_0"); @97
-ct_top  x_ct_top_0 (
+ct_top  x_ct_top_0 (// {{{
   .biu_pad_acready         (ibiu0_pad_acready      ),
   .biu_pad_araddr          (ibiu0_pad_araddr       ),
   .biu_pad_arbar           (ibiu0_pad_arbar        ),
@@ -830,7 +830,7 @@ ct_top  x_ct_top_0 (
   .x_exit_dbg_req_o        (core0_exit_dbg_req_o   ),
   .x_had_dbg_mask          (core0_had_dbg_mask     ),
   .x_regs_serial_data      (core0_regs_serial_data )
-);
+);// }}}
 
 // &Connect(.pad_cpu_rst_b      (cpurst_b)); @98
 // &Connect(.pad_core_rst_b     (core0_rst_b)); @99
@@ -862,7 +862,7 @@ ct_top  x_ct_top_0 (
 // &ConnRule(s/cp0_/core1_/); @138
 // &ConnRule(s/^x_/core1_/); @139
 // &Instance("ct_top", "x_ct_top_1"); @140
-ct_top  x_ct_top_1 (
+ct_top  x_ct_top_1 (// {{{
   .biu_pad_acready         (ibiu1_pad_acready      ),
   .biu_pad_araddr          (ibiu1_pad_araddr       ),
   .biu_pad_arbar           (ibiu1_pad_arbar        ),
@@ -972,7 +972,7 @@ ct_top  x_ct_top_1 (
   .x_exit_dbg_req_o        (core1_exit_dbg_req_o   ),
   .x_had_dbg_mask          (core1_had_dbg_mask     ),
   .x_regs_serial_data      (core1_regs_serial_data )
-);
+);// }}}
 
 // &Connect(.pad_cpu_rst_b      (cpurst_b)); @141
 // &Connect(.pad_core_rst_b     (core1_rst_b)); @142
@@ -1078,7 +1078,7 @@ ct_top  x_ct_top_1 (
 //  Instance ct_ciu_top sub module 
 //==========================================================
 // &Instance("ct_ciu_top"); @434
-ct_ciu_top  x_ct_ciu_top (
+ct_ciu_top  x_ct_ciu_top (// {{{
   .apb_clk_en                     (apb_clk_en                    ),
   .apbif_had_pctrace_inv          (apbif_had_pctrace_inv         ),
   .biu_pad_araddr                 (biu_pad_araddr                ),
@@ -1432,7 +1432,7 @@ ct_ciu_top  x_ct_ciu_top (
   .sysio_piu1_se_int              (sysio_piu1_se_int             ),
   .sysio_piu1_ss_int              (sysio_piu1_ss_int             ),
   .sysio_piu1_st_int              (sysio_piu1_st_int             )
-);
+);// }}}
 
 // &Connect(.forever_cpuclk   (forever_cpuclk)); @435
 // &Connect(.cpurst_b         (cpurst_b      )); @436
@@ -1450,7 +1450,7 @@ ct_ciu_top  x_ct_ciu_top (
 //  Instance ct_l2c_top sub module 
 //==========================================================
 // &Instance("ct_l2c_top"); @1400
-ct_l2c_top  x_ct_l2c_top (
+ct_l2c_top  x_ct_l2c_top (// {{{
   .ciu_l2c_addr_bank_0            (ciu_l2c_addr_bank_0           ),
   .ciu_l2c_addr_bank_1            (ciu_l2c_addr_bank_1           ),
   .ciu_l2c_addr_vld_bank_0        (ciu_l2c_addr_vld_bank_0       ),
@@ -1565,7 +1565,7 @@ ct_l2c_top  x_ct_l2c_top (
   .l2c_xx_no_op                   (l2c_xx_no_op                  ),
   .pad_yy_icg_scan_en             (pad_yy_icg_scan_en            ),
   .sysio_l2c_flush_req            (sysio_l2c_flush_req           )
-);
+);// }}}
 
 // &Connect(.forever_cpuclk   (forever_cpuclk)); @1401
 // &Connect(.cpurst_b         (cpurst_b )); @1402
@@ -1575,7 +1575,7 @@ ct_l2c_top  x_ct_l2c_top (
 //  Instance clint_top
 //==========================================================
 // &Instance("ct_clint_top"); @1410
-ct_clint_top  x_ct_clint_top (
+ct_clint_top  x_ct_clint_top (// {{{
   .apb_clk_en         (apb_clk_en        ),
   .ciu_clint_icg_en   (ciu_clint_icg_en  ),
   .clint_core0_ms_int (clint_core0_ms_int),
@@ -1600,7 +1600,7 @@ ct_clint_top  x_ct_clint_top (
   .pwdata             (pwdata            ),
   .pwrite             (pwrite            ),
   .sysio_clint_mtime  (sysio_clint_mtime )
-);
+);// }}}
 
 // &Connect(.forever_cpuclk   (forever_cpuclk)); @1411
 // &Connect(.forever_apbclk   (apb_clk )); @1412
@@ -1613,7 +1613,7 @@ plic_top #(.INT_NUM(`PLIC_INT_NUM+16),
               .HART_NUM(`PLIC_HART_NUM),
               .ID_NUM(`PLIC_ID_NUM),
               .PRIO_BIT(`PLIC_PRIO_BIT),
-              .MAX_HART_NUM(`MAX_HART_NUM)) x_plic_top(
+              .MAX_HART_NUM(`MAX_HART_NUM)) x_plic_top(// {{{
   .plic_hartx_mint_req    (plic_hartx_mint_req  ),
   .plic_hartx_sint_req    (plic_hartx_sint_req  ),
   .ciu_plic_paddr         (paddr[26:0]          ),
@@ -1631,7 +1631,7 @@ plic_top #(.INT_NUM(`PLIC_INT_NUM+16),
   .plic_ciu_pslverr       (perr_plic            ),
   .plic_clk               (apb_clk              ),
   .plicrst_b              (apbrst_b            )
-);
+);// }}}
 // &Force("input","pad_plic_int_vld"); @1446
 // &Force("bus","pad_plic_int_vld",`PLIC_INT_NUM-1,0); @1447
 // &Force("input","pad_plic_int_cfg"); @1448
@@ -1660,7 +1660,7 @@ assign plic_core1_se_int  = plic_hartx_sint_req[1];
 //  Instance ct_reset_top sub module 
 //==========================================================
 // &Instance("ct_mp_rst_top"); @1504
-ct_mp_rst_top  x_ct_mp_rst_top (
+ct_mp_rst_top  x_ct_mp_rst_top (// {{{
   .apbrst_b             (apbrst_b            ),
   .core0_fifo_rst_b     (core0_fifo_rst_b    ),
   .core0_rst_b          (core0_rst_b         ),
@@ -1679,7 +1679,7 @@ ct_mp_rst_top  x_ct_mp_rst_top (
   .pad_yy_scan_rst_b    (pad_yy_scan_rst_b   ),
   .phl_rst_b            (phl_rst_b           ),
   .trst_b               (trst_b              )
-);
+);// }}}
 
 // &Connect(.forever_cpuclk  (forever_cpuclk   )); @1505
 
@@ -1687,7 +1687,7 @@ ct_mp_rst_top  x_ct_mp_rst_top (
 //  Instance ct_clk_top sub module 
 //==========================================================
 // &Instance("ct_mp_clk_top"); @1510
-ct_mp_clk_top  x_ct_mp_clk_top (
+ct_mp_clk_top  x_ct_mp_clk_top (// {{{
   .apb_clk                      (apb_clk                     ),
   .apb_clk_en                   (apb_clk_en                  ),
   .axim_clk_en                  (axim_clk_en                 ),
@@ -1713,14 +1713,14 @@ ct_mp_clk_top  x_ct_mp_clk_top (
   .pad_yy_scan_mode             (pad_yy_scan_mode            ),
   .phl_rst_b                    (phl_rst_b                   ),
   .pll_cpu_clk                  (pll_cpu_clk                 )
-);
+);// }}}
 
 
 //==========================================================
 //         sysio
 //==========================================================
 // &Instance("ct_sysio_top"); @1515
-ct_sysio_top  x_ct_sysio_top (
+ct_sysio_top  x_ct_sysio_top (// {{{
   .apb_clk_en                 (apb_clk_en                ),
   .axim_clk_en                (axim_clk_en_f             ),
   .ciu_sysio_icg_en           (ciu_sysio_icg_en          ),
@@ -1779,7 +1779,7 @@ ct_sysio_top  x_ct_sysio_top (
   .sysio_piu1_st_int          (sysio_piu1_st_int         ),
   .sysio_xx_apb_base          (sysio_xx_apb_base         ),
   .sysio_xx_time              (sysio_xx_time             )
-);
+);// }}}
 
 // &Connect(.axim_clk_en    (axim_clk_en_f)); @1516
 
@@ -1788,7 +1788,7 @@ ct_sysio_top  x_ct_sysio_top (
 //==========================================================
 
 // &Instance("ct_had_common_top"); @1522
-ct_had_common_top  x_ct_had_common_top (
+ct_had_common_top  x_ct_had_common_top (// {{{
   .apbif_had_pctrace_inv  (apbif_had_pctrace_inv ),
   .ciu_had_dbg_info       (ciu_had_dbg_info      ),
   .core0_dbg_ack_pc       (core0_dbg_ack_pc      ),
@@ -1825,7 +1825,7 @@ ct_had_common_top  x_ct_had_common_top (
   .sysio_had_dbg_mask     (sysio_had_dbg_mask    ),
   .tclk                   (forever_jtgclk        ),
   .trst_b                 (trst_b                )
-);
+);// }}}
 
 // &Connect(.forever_cpuclk(forever_cpuclk  ), @1523
 //          .tclk          (forever_jtgclk  ), @1524

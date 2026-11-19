@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="1420" viewBox="0 0 1900 1420" role="img" aria-labelledby="title desc" xml:lang="zh-CN">
+  <title id="title">玄铁 C910 IDU 流水线分级图</title>
+  <desc id="desc">展示 IFU 指令进入 IDU 后经过 ID、IR、IS、Issue Queue 和 RF 的流水级，以及 IQ 等待、发射失败重试、执行端唤醒、写回和冲刷反馈。</desc>
+  <defs>
+    <marker id="arrow-blue" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#245c9f"/></marker>
+    <marker id="arrow-teal" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#11726a"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#a35a20"/></marker>
+    <marker id="arrow-red" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#a63d3d"/></marker>
+    <style>
+      text { font-family: "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", sans-serif; fill: #1a2c42; }
+      .mono { font-family: "DejaVu Sans Mono", "Consolas", monospace; }
+      .title { font-size: 39px; font-weight: 700; }
+      .h1 { font-size: 25px; font-weight: 700; }
+      .h2 { font-size: 20px; font-weight: 700; }
+      .item { font-size: 17px; font-weight: 650; }
+      .body { font-size: 15px; }
+      .small { font-size: 13px; }
+      .tiny { font-size: 12px; }
+      .muted { fill: #5b6c81; }
+      .blue { fill: #245c9f; }
+      .teal { fill: #11726a; }
+      .amber { fill: #a35a20; }
+      .red { fill: #a63d3d; }
+      .outer { fill: #fbfcfe; stroke: #90a7c1; stroke-width: 1.5; }
+      .stage { fill: #edf4fd; stroke: #9fb9d7; stroke-width: 1.4; }
+      .stage2 { fill: #f2f5f9; stroke: #b4c3d3; stroke-width: 1.4; }
+      .wait { fill: #eaf6f3; stroke: #94c3b9; stroke-width: 1.4; }
+      .rf { fill: #f2ecfa; stroke: #bfadd9; stroke-width: 1.4; }
+      .exec { fill: #f8f1e9; stroke: #d7b28d; stroke-width: 1.4; }
+      .callout { fill: #fffaf3; stroke: #d8b78e; stroke-width: 1.2; }
+      .divider { stroke: #c7d5e4; stroke-width: 1; }
+      .line-blue, .line-teal, .line-amber, .line-red { fill: none; stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; }
+      .line-blue { stroke: #245c9f; marker-end: url(#arrow-blue); }
+      .line-teal { stroke: #11726a; stroke-dasharray: 6 4; marker-end: url(#arrow-teal); }
+      .line-amber { stroke: #a35a20; marker-end: url(#arrow-amber); }
+      .line-red { stroke: #a63d3d; stroke-dasharray: 7 4; marker-end: url(#arrow-red); }
+      .thick-blue { fill: none; stroke: #245c9f; stroke-width: 3; }
+      .cycle { fill: #ffffff; stroke: #adc0d6; stroke-width: 1.2; }
+      .cycle-hot { fill: #eaf2fd; stroke: #7fa2ce; stroke-width: 1.4; }
+      .cycle-wait { fill: #eaf6f3; stroke: #86b9ad; stroke-width: 1.4; }
+      .center { text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect width="1900" height="1420" fill="#ffffff"/>
+  <rect x="0" y="0" width="1900" height="9" fill="#245c9f"/>
+  <text x="74" y="49" class="mono body blue">openC910 / IDU / PIPELINE VIEW</text>
+  <text x="73" y="92" class="title">玄铁 C910 IDU 每一级流水在做什么</text>
+  <text x="73" y="123" class="body muted">固定流水边界：ID、IR、IS、RF。IQ 是解耦的可变等待区，发射成功后进入执行单元 EX1。</text>
+
+  <g aria-label="图例">
+    <path d="M1196 66 H1242" class="line-blue"/><text x="1252" y="71" class="body">指令 / 数据前进</text>
+    <path d="M1398 66 H1444" class="line-teal"/><text x="1454" y="71" class="body">停顿 / 回压 / 唤醒</text>
+    <path d="M1640 66 H1686" class="line-amber"/><text x="1696" y="71" class="body">结果 / 写回</text>
+  </g>
+
+  <rect x="54" y="155" width="1792" height="627" rx="9" class="outer"/>
+  <text x="82" y="186" class="mono item">IDU 固定流水与解耦发射路径</text>
+
+  <!-- Main pipeline arrows -->
+  <path d="M258 320 H294" class="line-blue"/>
+  <path d="M555 320 H591" class="line-blue"/>
+  <path d="M852 320 H888" class="line-blue"/>
+  <path d="M1149 320 H1185" class="line-blue"/>
+  <path d="M1482 320 H1518" class="line-blue"/>
+  <path d="M1770 320 H1810" class="line-blue"/>
+  <text x="276" y="300" class="small blue center">ID/IR 寄存器</text>
+  <text x="573" y="300" class="small blue center">IR/IS 寄存器</text>
+  <text x="870" y="300" class="small blue center">IS 暂存</text>
+  <text x="1167" y="300" class="small blue center">IQ issue</text>
+  <text x="1500" y="300" class="small blue center">RF pipe 寄存器</text>
+
+  <!-- IFU/IB -->
+  <rect x="80" y="229" width="178" height="182" rx="7" class="stage2"/>
+  <text x="98" y="261" class="h2">输入</text>
+  <text x="98" y="287" class="mono item">IFU / IB</text>
+  <text x="98" y="318" class="body">指令缓冲提供</text>
+  <text x="98" y="341" class="body">inst0 / inst1 / inst2</text>
+  <text x="98" y="371" class="small muted">data + valid</text>
+  <text x="98" y="394" class="small teal">IDU 反压：idu_ifu_id_stall</text>
+
+  <!-- ID -->
+  <rect x="294" y="210" width="261" height="220" rx="7" class="stage"/>
+  <text x="314" y="244" class="h1">S1 · ID</text>
+  <text x="540" y="244" class="mono tiny muted" text-anchor="end">id_ctrl / id_dp</text>
+  <path d="M314 258 H535" class="divider"/>
+  <text x="314" y="286" class="item">本级处理</text>
+  <text x="314" y="310" class="body">• 选择 IB 中的连续指令</text>
+  <text x="314" y="332" class="body">• 基础译码、异常信息打包</text>
+  <text x="314" y="354" class="body">• 识别 split / fence / sync</text>
+  <text x="314" y="380" class="item">寄存内容</text>
+  <text x="314" y="403" class="small muted">id_inst{0,1,2}_data / _vld</text>
+  <text x="314" y="422" class="small teal">IR 停顿时保持不动</text>
+
+  <!-- IR -->
+  <rect x="591" y="210" width="261" height="220" rx="7" class="stage"/>
+  <text x="611" y="244" class="h1">S2 · IR</text>
+  <text x="837" y="244" class="mono tiny muted" text-anchor="end">ir_ctrl / ir_dp</text>
+  <path d="M611 258 H832" class="divider"/>
+  <text x="611" y="286" class="item">本级处理</text>
+  <text x="611" y="310" class="body">• RT / FRT / VRT 表查源标签</text>
+  <text x="611" y="332" class="body">• 分配目的物理标签</text>
+  <text x="611" y="354" class="body">• 生成 RAW 依赖与就绪位</text>
+  <text x="611" y="380" class="item">寄存内容</text>
+  <text x="611" y="403" class="small muted">ir_inst{0..3}_data + dep_info</text>
+  <text x="611" y="422" class="small teal">等待 RTU 资源时保持</text>
+
+  <!-- IS -->
+  <rect x="888" y="210" width="261" height="220" rx="7" class="stage"/>
+  <text x="908" y="244" class="h1">S3 · IS</text>
+  <text x="1134" y="244" class="mono tiny muted" text-anchor="end">is_ctrl / is_dp</text>
+  <path d="M908 258 H1129" class="divider"/>
+  <text x="908" y="286" class="item">本级处理</text>
+  <text x="908" y="310" class="body">• 4 路暂存和顺序调整</text>
+  <text x="908" y="332" class="body">• 选 IQ create0 / create1</text>
+  <text x="908" y="354" class="body">• 建 ROB / PST / VMB 记录</text>
+  <text x="908" y="380" class="item">输出</text>
+  <text x="908" y="403" class="small muted">指令、IID、源标签、目的标签</text>
+  <text x="908" y="422" class="small teal">ROB/IQ/VMB 满时回压 IR</text>
+
+  <!-- IQ -->
+  <rect x="1185" y="210" width="297" height="220" rx="7" class="wait"/>
+  <text x="1205" y="244" class="h1">W · Issue Queue</text>
+  <text x="1467" y="244" class="mono tiny muted" text-anchor="end">ct_idu_is_*</text>
+  <path d="M1205 258 H1462" class="divider"/>
+  <text x="1205" y="286" class="item">等待条件</text>
+  <text x="1205" y="309" class="body">源标签 ready + 端口可用</text>
+  <text x="1205" y="334" class="item">队列动作</text>
+  <text x="1205" y="357" class="body">按年龄选最老 ready 项</text>
+  <text x="1205" y="379" class="body">空队列允许 create bypass</text>
+  <text x="1205" y="405" class="small muted">AIQ0/1 · BIQ · LSIQ · SDIQ · VIQ0/1</text>
+  <path d="M1334 435 V470 H1177 V435" class="line-teal"/>
+  <text x="1334" y="493" class="small teal center">可等待 0 至多个周期</text>
+
+  <!-- RF -->
+  <rect x="1518" y="210" width="252" height="220" rx="7" class="rf"/>
+  <text x="1538" y="244" class="h1">S4 · RF</text>
+  <text x="1754" y="244" class="mono tiny muted" text-anchor="end">rf_ctrl / rf_dp</text>
+  <path d="M1538 258 H1750" class="divider"/>
+  <text x="1538" y="286" class="item">本级处理</text>
+  <text x="1538" y="309" class="body">• 锁存 IQ issue 数据</text>
+  <text x="1538" y="332" class="body">• 读 PREG / FREG / VREG</text>
+  <text x="1538" y="354" class="body">• fwd 命中和端口冲突检查</text>
+  <text x="1538" y="380" class="item">输出</text>
+  <text x="1538" y="403" class="small muted">Pipe 0–7 的操作数、EU select</text>
+  <text x="1538" y="422" class="small teal">失败则回 IQ 重试</text>
+
+  <!-- EX boundary -->
+  <rect x="1810" y="229" width="31" height="182" rx="5" class="exec"/>
+  <text x="1826" y="331" class="h2 center" transform="rotate(-90 1826 331)">EX1</text>
+
+  <!-- feedback and stall lines -->
+  <path d="M1770 466 H1630 V430" class="line-amber"/>
+  <text x="1640" y="485" class="small amber">执行端提前结果 → RF 前递</text>
+  <path d="M1770 515 H1360 V430" class="line-amber"/>
+  <text x="1420" y="536" class="small amber">IU / LSU / VFPU 写回标签 → IQ 唤醒</text>
+  <path d="M1518 560 H1320 V430" class="line-red"/>
+  <text x="1330" y="582" class="small red">src 未就绪 / 端口冲突 / 共享资源 → launch fail</text>
+  <path d="M1185 625 H1035 V430" class="line-teal"/>
+  <text x="1050" y="646" class="small teal">IQ / ROB / VMB full → IS stall → IR / ID 保持</text>
+  <path d="M888 680 H720 V430" class="line-teal"/>
+  <text x="735" y="702" class="small teal">RTU flush_fe / flush_is、cancel → 清空对应流水级和 IQ</text>
+
+  <!-- per-stage timing table -->
+  <rect x="54" y="815" width="1792" height="406" rx="9" class="outer"/>
+  <text x="82" y="849" class="h1">一条普通指令的时序示例</text>
+  <text x="82" y="876" class="body muted">示例假设源操作数在 IQ 中已经 ready，RF 没有端口冲突。若 IQ 等待或 RF launch fail，C4 之后会自动延长。</text>
+
+  <g aria-label="时序表">
+    <text x="95" y="916" class="item">流水对象</text>
+    <text x="360" y="916" class="mono item center">C0</text>
+    <text x="560" y="916" class="mono item center">C1</text>
+    <text x="760" y="916" class="mono item center">C2</text>
+    <text x="960" y="916" class="mono item center">C3</text>
+    <text x="1160" y="916" class="mono item center">C4</text>
+    <text x="1360" y="916" class="mono item center">C5</text>
+    <text x="1560" y="916" class="mono item center">C6</text>
+    <text x="1760" y="916" class="mono item center">C7</text>
+    <path d="M285 931 H1812" class="divider"/>
+
+    <text x="95" y="963" class="item">指令 A</text>
+    <rect x="295" y="940" width="130" height="43" rx="4" class="cycle"/><text x="360" y="967" class="body center">IB 提供</text>
+    <rect x="495" y="940" width="130" height="43" rx="4" class="cycle-hot"/><text x="560" y="967" class="body center">ID</text>
+    <rect x="695" y="940" width="130" height="43" rx="4" class="cycle-hot"/><text x="760" y="967" class="body center">IR</text>
+    <rect x="895" y="940" width="130" height="43" rx="4" class="cycle-hot"/><text x="960" y="967" class="body center">IS</text>
+    <rect x="1095" y="940" width="130" height="43" rx="4" class="cycle-wait"/><text x="1160" y="967" class="body center">IQ 入队</text>
+    <rect x="1295" y="940" width="130" height="43" rx="4" class="cycle-wait"/><text x="1360" y="967" class="body center">IQ 选中</text>
+    <rect x="1495" y="940" width="130" height="43" rx="4" class="rf"/><text x="1560" y="967" class="body center">RF</text>
+    <rect x="1695" y="940" width="130" height="43" rx="4" class="exec"/><text x="1760" y="967" class="body center">EX1</text>
+
+    <text x="95" y="1023" class="item">每拍发生的事</text>
+    <text x="295" y="1023" class="small">取一组指令</text>
+    <text x="495" y="1023" class="small">译码并对齐</text>
+    <text x="695" y="1023" class="small">重命名 / 依赖</text>
+    <text x="895" y="1023" class="small">选队列 / 建记录</text>
+    <text x="1095" y="1023" class="small">写 entry</text>
+    <text x="1295" y="1023" class="small">oldest ready</text>
+    <text x="1495" y="1023" class="small">读数 / 检查</text>
+    <text x="1695" y="1023" class="small">交给执行端</text>
+
+    <text x="95" y="1080" class="item">停顿时保持</text>
+    <text x="295" y="1080" class="small muted">IB valid</text>
+    <text x="495" y="1080" class="small muted">id_inst data</text>
+    <text x="695" y="1080" class="small muted">ir_inst + dep</text>
+    <text x="895" y="1080" class="small muted">is_inst + sel</text>
+    <text x="1095" y="1080" class="small muted">entry valid / frz</text>
+    <text x="1295" y="1080" class="small muted">等待唤醒</text>
+    <text x="1495" y="1080" class="small muted">rf_pipe data</text>
+    <text x="1695" y="1080" class="small muted">由执行单元接管</text>
+
+    <path d="M295 1112 H1824" class="divider"/>
+    <text x="95" y="1148" class="item teal">关键规则</text>
+    <text x="295" y="1148" class="body teal">ID / IR / IS 级遇到阻塞会保持寄存器状态，前级收到 stall。</text>
+    <text x="295" y="1173" class="body teal">IQ 等待不阻塞其它已就绪指令；RF 发射失败只冻结当前候选项，随后重试。</text>
+    <text x="295" y="1198" class="body red">flush_fe / flush_is 或 cancel 会清除相应 valid，重命名表由 RTU 恢复映射。</text>
+  </g>
+
+  <!-- detailed bottom notes -->
+  <rect x="54" y="1255" width="1792" height="120" rx="9" class="callout"/>
+  <text x="78" y="1285" class="h2">宽度和接口要点</text>
+  <text x="78" y="1312" class="body">前端 ID 侧接收最多 3 条 IB 指令，IR / IS 侧维护最多 4 路指令信息。IS 可对同一 Store 同时创建 LSIQ（地址）和 SDIQ（数据）。</text>
+  <text x="78" y="1338" class="body">RF 按 Pipe 0–7 分发：Pipe 0–2 → IU，Pipe 3–5 → LSU，Pipe 6–7 → VFPU。Pipe 3 / 4 由 LSIQ 的两个访存发射口供给。</text>
+  <text x="78" y="1363" class="mono tiny muted">依据：ct_idu_id_ctrl.v · ct_idu_id_dp.v · ct_idu_ir_ctrl.v · ct_idu_ir_dp.v · ct_idu_is_ctrl.v · ct_idu_is_*.v · ct_idu_rf_ctrl.v · ct_idu_rf_dp.v</text>
+</svg>

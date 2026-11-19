@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1240"
+     viewBox="0 0 1600 1240" role="img" aria-labelledby="title desc" xml:lang="zh-CN">
+  <title id="title">玄铁 C910 IDU 模块框架图</title>
+  <desc id="desc">从 IFU 的三路输入，经 ID 译码、IR 重命名、IS 分派、七个发射队列和八条 RF 通路到执行单元。侧边标出资源回压、恢复、执行结果唤醒、前递和写回。</desc>
+  <defs>
+    <marker id="arrow-main" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#235da7"/>
+    </marker>
+    <marker id="arrow-control" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#12716a"/>
+    </marker>
+    <marker id="arrow-result" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#98521e"/>
+    </marker>
+    <style>
+      text { font-family: "Noto Sans CJK SC", "Microsoft YaHei", "PingFang SC", sans-serif; fill: #18283d; }
+      .mono { font-family: "DejaVu Sans Mono", "Consolas", monospace; }
+      .center { text-anchor: middle; }
+      .title { font-size: 38px; font-weight: 700; }
+      .section { font-size: 21px; font-weight: 700; }
+      .item { font-size: 17px; font-weight: 650; }
+      .body { font-size: 15px; }
+      .small { font-size: 13px; }
+      .muted { fill: #53647a; }
+      .blue { fill: #235da7; }
+      .teal { fill: #12716a; }
+      .amber { fill: #98521e; }
+      .main-line, .control-line, .result-line { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+      .main-line { stroke: #235da7; }
+      .control-line { stroke: #12716a; stroke-dasharray: 5 4; }
+      .result-line { stroke: #98521e; }
+      .main-arrow { marker-end: url(#arrow-main); }
+      .control-arrow { marker-end: url(#arrow-control); }
+      .result-arrow { marker-end: url(#arrow-result); }
+      .band { fill: #f6f9fe; stroke: #a9bfd9; }
+      .rule { stroke: #c8d7e8; }
+      .outside { fill: #f1f4f7; stroke: #b5c2cf; }
+      .node { fill: #ffffff; stroke: #b2c4db; }
+      .int { fill: #e9f1fd; stroke: #a5bcdd; }
+      .branch { fill: #edf0f6; stroke: #b6bfd3; }
+      .memory { fill: #e8f4f1; stroke: #a1c9c0; }
+      .vector { fill: #f0ecf9; stroke: #c1b4da; }
+      .ports { font-size: 13px; font-weight: 700; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1240" fill="#ffffff"/>
+  <rect x="0" y="0" width="1600" height="8" fill="#235da7"/>
+  <text x="75" y="47" class="mono body blue">openC910 / IDU</text>
+  <text x="74" y="89" class="title">玄铁 C910 指令译码与发射单元</text>
+
+  <g aria-label="图例">
+    <path d="M1010 54 H1050" class="main-line main-arrow"/>
+    <text x="1060" y="59" class="body">指令 / 数据</text>
+    <path d="M1170 54 H1210" class="control-line control-arrow"/>
+    <text x="1220" y="59" class="body">控制 / 回压</text>
+    <path d="M1332 54 H1372" class="result-line result-arrow"/>
+    <text x="1382" y="59" class="body">执行端反馈</text>
+    <text x="1010" y="85" class="small muted">箭头表示数据或信号方向，成组连线合并表示</text>
+  </g>
+
+  <rect x="76" y="187" width="1154" height="886" rx="9" fill="#fff" stroke="#8ca3bd" stroke-width="1.5"/>
+  <text x="120" y="214" class="mono item">ct_idu_top</text>
+
+  <g aria-label="指令路径和分派接口">
+    <path d="M640 165 V233" class="main-line main-arrow"/>
+    <path d="M640 336 V373" class="main-line main-arrow"/>
+    <path d="M640 498 V534" class="main-line main-arrow"/>
+    <path d="M640 637 V673" class="main-line main-arrow"/>
+    <path d="M1190 403 H1263" class="main-line main-arrow"/>
+    <path d="M1190 563 H1263" class="main-line main-arrow"/>
+    <path d="M1190 616 H1244 V654 H1263" class="main-line main-arrow"/>
+    <path d="M650 1055 V1092" class="main-line"/>
+    <path d="M650 1092 H296 V1112" class="main-line main-arrow"/>
+    <path d="M650 1092 V1112" class="main-line main-arrow"/>
+    <path d="M650 1092 H1010 V1112" class="main-line main-arrow"/>
+    <circle cx="650" cy="1092" r="3" fill="#235da7"/>
+  </g>
+
+  <g aria-label="控制和回压">
+    <path d="M120 256 H99 V137 H360" class="control-line control-arrow"/>
+    <path d="M120 420 H99 V294 H120" class="control-line control-arrow"/>
+    <path d="M120 563 H99 V459 H120" class="control-line control-arrow"/>
+    <path d="M120 753 H99 V603 H120" class="control-line control-arrow"/>
+    <path d="M120 982 H99 V793 H120" class="control-line control-arrow"/>
+    <path d="M1263 273 H1190" class="control-line control-arrow"/>
+    <path d="M1263 432 H1190" class="control-line control-arrow"/>
+    <path d="M1263 463 H1190" class="control-line control-arrow"/>
+    <path d="M1263 588 H1190" class="control-line control-arrow"/>
+    <path d="M1263 676 H1218 V629 H1190" class="control-line control-arrow"/>
+  </g>
+
+  <g aria-label="IFU 指令缓冲">
+    <rect x="360" y="111" width="560" height="54" rx="6" class="outside"/>
+    <text x="380" y="144" class="item">IFU · 指令缓冲 IB</text>
+    <text x="555" y="144" class="mono small muted">ifu_idu_ib_inst{0,1,2}_{data,vld}</text>
+    <text x="135" y="127" class="mono small teal">idu_ifu_id_*stall</text>
+    <text x="656" y="180" class="body blue">最多 3 条原始指令</text>
+  </g>
+
+  <g aria-label="ID 译码与拆分">
+    <rect x="120" y="234" width="1070" height="102" rx="6" class="band"/>
+    <text x="140" y="263" class="section">ID · 译码与拆分</text>
+    <text x="1170" y="262" class="mono small muted" text-anchor="end">ct_idu_id_ctrl / ct_idu_id_dp</text>
+    <path d="M140 276 H1170 M465 287 V323 M810 287 V323" class="rule"/>
+    <text x="141" y="302" class="item">常规译码 / 异常打包</text>
+    <text x="141" y="323" class="mono small muted">ct_idu_id_decd ×3</text>
+    <text x="484" y="302" class="item">短拆分 / 长拆分</text>
+    <text x="484" y="323" class="mono small muted">ct_idu_id_split_short ×3 / split_long ×1</text>
+    <text x="829" y="302" class="item">Fence / sync / 系统指令串行化</text>
+    <text x="829" y="323" class="small muted">ct_idu_id_fence · 等 IR/IS、ROB/PST 排空及 DIV 空闲</text>
+    <text x="133" y="358" class="small teal">IR → ID：重命名阻塞</text>
+    <text x="656" y="358" class="body blue">最多 4 路译码结果 · 含拆分依赖</text>
+  </g>
+
+  <g aria-label="IR 寄存器重命名">
+    <rect x="120" y="374" width="1070" height="124" rx="6" class="band"/>
+    <text x="140" y="403" class="section">IR · 寄存器重命名</text>
+    <text x="1170" y="402" class="mono small muted" text-anchor="end">ct_idu_ir_ctrl / ct_idu_ir_dp</text>
+    <path d="M140 416 H1170 M465 427 V485 M810 427 V485" class="rule"/>
+    <text x="141" y="444" class="item">重命名表</text>
+    <text x="141" y="464" class="small muted">RT · 整数　 FRT · 浮点 / EREG　 VRT · 向量</text>
+    <text x="141" y="484" class="mono small muted">ct_idu_ir_rt / ir_frt / ir_vrt</text>
+    <text x="484" y="444" class="item">物理标签与依赖生成</text>
+    <text x="484" y="464" class="body">源标签、就绪位、同组 RAW 匹配</text>
+    <text x="484" y="484" class="small muted">记录新旧目的标签，支持恢复映射</text>
+    <text x="829" y="444" class="item">分派预选</text>
+    <text x="829" y="464" class="body">IR 二次译码，结合 IS 残留指令选队列</text>
+    <text x="829" y="484" class="small muted">AIQ0/1、VIQ0/1 动态负载均衡</text>
+    <text x="133" y="519" class="small teal">IS → IR：分派停顿 / 类型冲突</text>
+    <text x="656" y="519" class="body blue">重命名后的指令 + 标签 + 队列选择</text>
+  </g>
+
+  <g aria-label="IS 分派">
+    <rect x="120" y="535" width="1070" height="102" rx="6" class="band"/>
+    <text x="140" y="564" class="section">IS · 暂存与分派</text>
+    <text x="1170" y="563" class="mono small muted" text-anchor="end">ct_idu_is_ctrl / ct_idu_is_dp</text>
+    <path d="M140 577 H1170 M465 586 V624 M810 586 V624" class="rule"/>
+    <text x="141" y="603" class="item">4 路流水暂存</text>
+    <text x="141" y="624" class="mono small muted">ct_idu_is_pipe_entry ×4</text>
+    <text x="484" y="603" class="item">选择入队、拼装创建数据</text>
+    <text x="484" y="624" class="small muted">各队列有 create0/1，按队列端口约束分派</text>
+    <text x="829" y="603" class="item">同步建立后端记录</text>
+    <text x="829" y="624" class="small muted">RTU ROB/PST、LSU VMB；资源满时回压</text>
+    <text x="133" y="660" class="small teal">IQ → IS：占用 / 满</text>
+    <text x="656" y="660" class="body blue">IQ create · 指令、源依赖、目的标签及 IID</text>
+  </g>
+
+  <g aria-label="七个发射队列">
+    <rect x="120" y="674" width="1070" height="148" rx="6" fill="#fbfcfe" stroke="#a9bfd9"/>
+    <text x="140" y="703" class="section">IQ · 7 个发射队列</text>
+    <text x="337" y="701" class="small muted">数字为队列表项数</text>
+    <text x="1170" y="701" class="body muted" text-anchor="end">源依赖唤醒 · 按就绪与年龄选发 · 部分队列支持空队列直发</text>
+    <path d="M197 722 H1107 M197 722 V740 M327 722 V740 M457 722 V740 M652 722 V740 M847 722 V740 M977 722 V740 M1107 722 V740" class="main-line"/>
+    <path d="M640 674 V722" class="main-line"/>
+    <circle cx="640" cy="722" r="3" fill="#235da7"/>
+
+    <rect x="137" y="740" width="120" height="56" rx="5" class="int"/>
+    <rect x="267" y="740" width="120" height="56" rx="5" class="int"/>
+    <rect x="397" y="740" width="120" height="56" rx="5" class="branch"/>
+    <rect x="527" y="740" width="250" height="56" rx="5" class="memory"/>
+    <rect x="787" y="740" width="120" height="56" rx="5" class="memory"/>
+    <rect x="917" y="740" width="120" height="56" rx="5" class="vector"/>
+    <rect x="1047" y="740" width="120" height="56" rx="5" class="vector"/>
+
+    <g class="center">
+      <text x="197" y="765" class="mono item">AIQ0 · 8</text>
+      <text x="327" y="765" class="mono item">AIQ1 · 8</text>
+      <text x="457" y="765" class="mono item">BIQ · 12</text>
+      <text x="652" y="765" class="mono item">LSIQ · 12</text>
+      <text x="847" y="765" class="mono item">SDIQ · 12</text>
+      <text x="977" y="765" class="mono item">VIQ0 · 8</text>
+      <text x="1107" y="765" class="mono item">VIQ1 · 8</text>
+      <text x="197" y="785" class="small">整数队列 0</text>
+      <text x="327" y="785" class="small">整数队列 1</text>
+      <text x="457" y="785" class="small">分支队列</text>
+      <text x="652" y="785" class="small">访存队列 · 两个发射口</text>
+      <text x="847" y="785" class="small">存储数据队列</text>
+      <text x="977" y="785" class="small">向量 / 浮点 0</text>
+      <text x="1107" y="785" class="small">向量 / 浮点 1</text>
+    </g>
+  </g>
+
+  <g aria-label="RF 读数、前递与发射检查">
+    <rect x="120" y="844" width="1070" height="211" rx="6" class="band"/>
+    <path d="M197 796 V859" class="main-line main-arrow"/>
+    <path d="M327 796 V859" class="main-line main-arrow"/>
+    <path d="M457 796 V859" class="main-line main-arrow"/>
+    <path d="M587 796 V859" class="main-line main-arrow"/>
+    <path d="M717 796 V859" class="main-line main-arrow"/>
+    <path d="M847 796 V859" class="main-line main-arrow"/>
+    <path d="M977 796 V859" class="main-line main-arrow"/>
+    <path d="M1107 796 V859" class="main-line main-arrow"/>
+    <rect x="137" y="860" width="120" height="46" rx="4" class="int"/>
+    <rect x="267" y="860" width="120" height="46" rx="4" class="int"/>
+    <rect x="397" y="860" width="120" height="46" rx="4" class="branch"/>
+    <rect x="527" y="860" width="120" height="46" rx="4" class="memory"/>
+    <rect x="657" y="860" width="120" height="46" rx="4" class="memory"/>
+    <rect x="787" y="860" width="120" height="46" rx="4" class="memory"/>
+    <rect x="917" y="860" width="120" height="46" rx="4" class="vector"/>
+    <rect x="1047" y="860" width="120" height="46" rx="4" class="vector"/>
+    <g class="center">
+      <text x="197" y="879" class="mono ports">Pipe 0</text>
+      <text x="327" y="879" class="mono ports">Pipe 1</text>
+      <text x="457" y="879" class="mono ports">Pipe 2</text>
+      <text x="587" y="879" class="mono ports">Pipe 3</text>
+      <text x="717" y="879" class="mono ports">Pipe 4</text>
+      <text x="847" y="879" class="mono ports">Pipe 5</text>
+      <text x="977" y="879" class="mono ports">Pipe 6</text>
+      <text x="1107" y="879" class="mono ports">Pipe 7</text>
+      <text x="197" y="897" class="small">ALU / DIV / 特殊</text>
+      <text x="327" y="897" class="small">ALU / MUL</text>
+      <text x="457" y="897" class="small">BJU · 分支</text>
+      <text x="587" y="897" class="small">Load · 访存</text>
+      <text x="717" y="897" class="small">Store · 地址</text>
+      <text x="847" y="897" class="small">Store · 数据</text>
+      <text x="977" y="897" class="small">向量 / 浮点</text>
+      <text x="1107" y="897" class="small">向量 / 浮点</text>
+    </g>
+
+    <text x="140" y="936" class="section">RF · 读操作数与发射检查</text>
+    <rect x="137" y="947" width="679" height="87" rx="5" class="node"/>
+    <path d="M365 957 V1024 M594 957 V1024" class="rule"/>
+    <text x="151" y="972" class="mono body">ct_idu_rf_ctrl</text>
+    <text x="151" y="993" class="small">有效位、端口冲突、执行单元选择</text>
+    <text x="151" y="1015" class="small teal">成功确认 / 失败反馈到 IQ</text>
+    <text x="379" y="972" class="mono body">ct_idu_rf_dp</text>
+    <text x="379" y="993" class="small">RF 流水寄存器、执行译码</text>
+    <text x="379" y="1015" class="small">选择操作数、产生源未就绪信号</text>
+    <text x="608" y="972" class="mono body">ct_idu_rf_fwd</text>
+    <text x="608" y="993" class="small">按物理标签匹配前递</text>
+    <text x="608" y="1015" class="small">返回命中及操作数给 rf_dp</text>
+
+    <rect x="905" y="947" width="265" height="87" rx="5" class="node"/>
+    <text x="920" y="972" class="item">PRF · 物理寄存器文件</text>
+    <text x="920" y="993" class="small">PREG（整数）· FR（浮点）· VR0 / VR1</text>
+    <text x="920" y="1015" class="small">EREG · 浮点状态，退休时更新 CP0</text>
+    <path d="M816 981 H904" class="main-line main-arrow"/>
+    <path d="M905 1007 H817" class="main-line main-arrow"/>
+    <text x="860" y="975" class="small blue center">读地址</text>
+    <text x="860" y="1025" class="small blue center">操作数</text>
+    <text x="139" y="1049" class="small teal">对候选指令发射失败时解除冻结，按原因清除就绪位以待重试。</text>
+  </g>
+
+  <g aria-label="外部配置与分派接口">
+    <rect x="1263" y="234" width="276" height="93" rx="6" class="outside"/>
+    <text x="1281" y="262" class="section">CP0</text>
+    <text x="1281" y="287" class="body">译码环境 · frm / fs / vs 等</text>
+    <text x="1281" y="310" class="small muted">另有 DLB、IQ 旁路与时钟门控配置</text>
+
+    <rect x="1263" y="361" width="276" height="243" rx="6" class="outside"/>
+    <text x="1281" y="389" class="section">RTU · 重排序与退休</text>
+    <text x="1281" y="410" class="body blue">收取物理目的寄存器分配请求</text>
+    <text x="1281" y="437" class="body teal">返回 PREG / FREG / VREG / EREG</text>
+    <text x="1281" y="464" class="body teal">返回恢复映射、flush / stall</text>
+    <text x="1281" y="485" class="small muted">冲刷同时送到相应流水级和队列</text>
+    <path d="M1281 513 H1521" class="rule"/>
+    <text x="1281" y="541" class="item">ROB / PST</text>
+    <text x="1281" y="569" class="body blue">ROB create、PST 分派记录</text>
+    <text x="1281" y="592" class="body teal">返回 IID、ROB full</text>
+
+    <rect x="1263" y="625" width="276" height="68" rx="6" class="outside"/>
+    <text x="1281" y="649" class="item">LSU · 向量访存缓冲 VMB</text>
+    <text x="1281" y="673" class="small muted">接收至多 2 路 create，返回 full / empty</text>
+  </g>
+
+  <g aria-label="来自 IU、LSU、VFPU 的执行反馈">
+    <path d="M1263 783 H1190" class="result-line result-arrow"/>
+    <path d="M1263 884 H1206 V928 H783 V947" class="result-line result-arrow"/>
+    <path d="M1263 1002 H1170" class="result-line result-arrow"/>
+    <text x="1263" y="736" class="small amber">来自 IU / LSU / VFPU</text>
+    <rect x="1263" y="752" width="276" height="282" rx="6" fill="#fcf5ed" stroke="#d7b493"/>
+    <path d="M1281 837 H1521 M1281 940 H1521" stroke="#dbc3ad"/>
+    <text x="1281" y="781" class="item amber">唤醒 / 状态</text>
+    <text x="1281" y="805" class="body">目的物理标签及有效位 → IQ</text>
+    <text x="1281" y="824" class="small muted">LSU 同时反馈访存重放及完成状态</text>
+    <text x="1281" y="874" class="item amber">操作数前递</text>
+    <text x="1281" y="899" class="body">提前可用的结果数据 → RF</text>
+    <text x="1281" y="919" class="small muted">按各 pipe / 执行级进行旁路匹配</text>
+    <text x="1281" y="976" class="item amber">结果写回</text>
+    <text x="1281" y="1001" class="body">目的物理寄存器及数据 → PRF</text>
+    <text x="1281" y="1021" class="small muted">整数、浮点 / 向量及 EREG 分别接入</text>
+  </g>
+
+  <g aria-label="执行端">
+    <rect x="120" y="1113" width="353" height="60" rx="6" class="outside"/>
+    <rect x="483" y="1113" width="334" height="60" rx="6" class="outside"/>
+    <rect x="827" y="1113" width="363" height="60" rx="6" class="outside"/>
+    <text x="139" y="1139" class="item">IU · 整数 / 分支执行</text>
+    <text x="139" y="1160" class="small muted">Pipe 0–2 · Pipe 0 也可发往 CP0</text>
+    <text x="502" y="1139" class="item">LSU · 访存执行</text>
+    <text x="502" y="1160" class="small muted">Pipe 3–5 · Load / Store 地址 / Store 数据</text>
+    <text x="846" y="1139" class="item">VFPU · 浮点 / 向量执行</text>
+    <text x="846" y="1160" class="small muted">Pipe 6–7 · Pipe 6 含向量除法发射接口</text>
+  </g>
+
+  <path d="M75 1196 H1539" class="rule"/>
+  <text x="75" y="1219" class="small muted">RTL 索引　ct_idu_top.v · ct_idu_id_*.v · ct_idu_ir_*.v · ct_idu_is_*.v · ct_idu_rf_*.v</text>
+  <text x="1539" y="1219" class="small muted" text-anchor="end">同一条 Store 可分派至 LSIQ（地址）与 SDIQ（数据）。</text>
+</svg>

@@ -14,7 +14,7 @@ limitations under the License.
 */
 
 // &ModuleBeg; @28
-module ct_lsu_ld_ag(
+module ct_lsu_ld_ag(// {{{
   ag_dcache_arb_ld_data_gateclk_en,
   ag_dcache_arb_ld_data_high_idx,
   ag_dcache_arb_ld_data_low_idx,
@@ -156,7 +156,7 @@ module ct_lsu_ld_ag(
   rtu_yy_xx_commit2_iid,
   rtu_yy_xx_flush,
   st_ag_iid
-);
+);// }}}
 
 // &Ports; @29
 input           cp0_lsu_cb_aclr_dis;                

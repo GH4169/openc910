@@ -17,7 +17,7 @@ limitations under the License.
 // &Depend("top_golden_port.vp"); @25
 
 // &ModuleBeg; @27
-module ct_top(
+module ct_top( // {{{
   biu_pad_acready,
   biu_pad_araddr,
   biu_pad_arbar,
@@ -127,10 +127,10 @@ module ct_top(
   x_exit_dbg_req_o,
   x_had_dbg_mask,
   x_regs_serial_data
-);
+); // }}}
 
 // &Ports("compare", "../../../gen_rtl/cpu/rtl/top_golden_port.v"); @28
-input   [63 :0]  ir_corex_wdata;                      
+input   [63 :0]  ir_corex_wdata;                      // {{{
 input   [39 :0]  pad_biu_acaddr;                      
 input   [2  :0]  pad_biu_acprot;                      
 input   [3  :0]  pad_biu_acsnoop;                     
@@ -238,13 +238,13 @@ output  [39 :0]  rtu_pad_retire2_pc;
 output           x_dbg_ack_pc;                        
 output           x_enter_dbg_req_o;                   
 output           x_exit_dbg_req_o;                    
-output  [63 :0]  x_regs_serial_data;                  
+output  [63 :0]  x_regs_serial_data;                  // }}}
 
 //&Ports;
 // &Regs; @30
 
 // &Wires; @31
-wire    [39 :0]  biu_cp0_apb_base;                    
+wire    [39 :0]  biu_cp0_apb_base;                    // {{{
 wire             biu_cp0_cmplt;                       
 wire    [2  :0]  biu_cp0_coreid;                      
 wire             biu_cp0_me_int;                      
@@ -837,7 +837,7 @@ wire             x_enter_dbg_req_o;
 wire             x_exit_dbg_req_i;                    
 wire             x_exit_dbg_req_o;                    
 wire             x_had_dbg_mask;                      
-wire    [63 :0]  x_regs_serial_data;                  
+wire    [63 :0]  x_regs_serial_data;                  // }}}
 
 
 // &Force("input", "pad_core_sleep_in"); @34
@@ -846,7 +846,7 @@ wire    [63 :0]  x_regs_serial_data;
 //  Instance core module
 //==========================================================
 // &Instance("ct_core"); @40
-ct_core  x_ct_core (
+ct_core  x_ct_core ( // {{{
   .biu_cp0_apb_base                     (biu_cp0_apb_base                    ),
   .biu_cp0_cmplt                        (biu_cp0_cmplt                       ),
   .biu_cp0_coreid                       (biu_cp0_coreid                      ),
@@ -1305,7 +1305,7 @@ ct_core  x_ct_core (
   .rtu_yy_xx_retire0_normal             (rtu_yy_xx_retire0_normal            ),
   .rtu_yy_xx_retire1                    (rtu_yy_xx_retire1                   ),
   .rtu_yy_xx_retire2                    (rtu_yy_xx_retire2                   )
-);
+); // }}}
 
 // &Connect(.forever_cpuclk    (coreclk)); @41
 // &Connect(.ifu_rst_b         (ifu_rst_b)); @42
@@ -1317,7 +1317,7 @@ ct_core  x_ct_core (
 //  Instance ct_mmu_top sub module 
 //==========================================================
 // &Instance("ct_mmu_top"); @50
-ct_mmu_top  x_ct_mmu_top (
+ct_mmu_top  x_ct_mmu_top ( // {{{
   .biu_mmu_smp_disable      (biu_mmu_smp_disable     ),
   .cp0_mmu_cskyee           (cp0_mmu_cskyee          ),
   .cp0_mmu_icg_en           (cp0_mmu_icg_en          ),
@@ -1429,7 +1429,7 @@ ct_mmu_top  x_ct_mmu_top (
   .rtu_mmu_bad_vpn          (rtu_mmu_bad_vpn         ),
   .rtu_mmu_expt_vld         (rtu_mmu_expt_vld        ),
   .rtu_yy_xx_flush          (rtu_yy_xx_flush         )
-);
+); // }}}
 
 // &Connect(.forever_cpuclk    (coreclk)); @51
 // &Connect(.cpurst_b          (mmu_rst_b)); @52
@@ -1441,7 +1441,7 @@ ct_mmu_top  x_ct_mmu_top (
 // &Connect(.forever_cpuclk    (coreclk)); @59
 // &Connect(.cpurst_b          (mmu_rst_b)); @60
 // &Instance("ct_pmp_top"); @62
-ct_pmp_top  x_ct_pmp_top (
+ct_pmp_top  x_ct_pmp_top ( // {{{
   .cp0_pmp_icg_en     (cp0_pmp_icg_en    ),
   .cp0_pmp_mpp        (cp0_pmp_mpp       ),
   .cp0_pmp_mprv       (cp0_pmp_mprv      ),
@@ -1464,7 +1464,7 @@ ct_pmp_top  x_ct_pmp_top (
   .pmp_mmu_flg2       (pmp_mmu_flg2      ),
   .pmp_mmu_flg3       (pmp_mmu_flg3      ),
   .pmp_mmu_flg4       (pmp_mmu_flg4      )
-);
+); // }}}
 
 // &Connect(.forever_cpuclk    (coreclk)); @63
 // &Connect(.cpurst_b          (mmu_rst_b)); @64
@@ -1473,7 +1473,7 @@ ct_pmp_top  x_ct_pmp_top (
 //  Instance ct_biu_top sub module 
 //==========================================================
 // &Instance("ct_biu_top","x_ct_biu_top"); @70
-ct_biu_top  x_ct_biu_top (
+ct_biu_top  x_ct_biu_top ( // {{{
   .biu_cp0_apb_base         (biu_cp0_apb_base        ),
   .biu_cp0_cmplt            (biu_cp0_cmplt           ),
   .biu_cp0_coreid           (biu_cp0_coreid          ),
@@ -1698,7 +1698,7 @@ ct_biu_top  x_ct_biu_top (
   .pad_xx_apb_base          (pad_xx_apb_base         ),
   .pad_xx_time              (pad_xx_time             ),
   .pad_yy_icg_scan_en       (pad_yy_icg_scan_en      )
-);
+); // }}}
 
 // &Connect(.cpurst_b          (mmu_rst_b)); @71
 
@@ -1706,7 +1706,7 @@ ct_biu_top  x_ct_biu_top (
 //  Instance ct_had_private top sub module 
 //==========================================================
 // &Instance("ct_had_private_top"); @76
-ct_had_private_top  x_ct_had_private_top (
+ct_had_private_top  x_ct_had_private_top ( // {{{
   .biu_had_coreid                       (biu_had_coreid                      ),
   .biu_had_sdb_req_b                    (biu_had_sdb_req_b                   ),
   .cp0_had_cpuid_0                      (cp0_had_cpuid_0                     ),
@@ -1850,7 +1850,7 @@ ct_had_private_top  x_ct_had_private_top (
   .x_exit_dbg_req_o                     (x_exit_dbg_req_o                    ),
   .x_had_dbg_mask                       (x_had_dbg_mask                      ),
   .x_regs_serial_data                   (x_regs_serial_data                  )
-);
+); // }}}
 
 // &Connect(.cpurst_b    (had_rst_b), @77
 //          .cpuclk      (forever_coreclk)); @78
@@ -1859,7 +1859,7 @@ ct_had_private_top  x_ct_had_private_top (
 //   Instance ct_hpcp_top
 //==========================================================
 // &Instance("ct_hpcp_top"); @84
-ct_hpcp_top  x_ct_hpcp_top (
+ct_hpcp_top  x_ct_hpcp_top ( // {{{
   .biu_hpcp_cmplt                     (biu_hpcp_cmplt                    ),
   .biu_hpcp_l2of_int                  (biu_hpcp_l2of_int                 ),
   .biu_hpcp_rdata                     (biu_hpcp_rdata                    ),
@@ -1981,7 +1981,7 @@ ct_hpcp_top  x_ct_hpcp_top (
   .rtu_hpcp_trace_inst2_next_pc       (rtu_hpcp_trace_inst2_next_pc      ),
   .rtu_yy_xx_dbgon                    (rtu_yy_xx_dbgon                   ),
   .rtu_yy_xx_flush                    (rtu_yy_xx_flush                   )
-);
+); // }}}
 
 // &Connect(.forever_cpuclk    (coreclk)); @85
 // &Connect(.cpurst_b          (mmu_rst_b)); @86
@@ -1990,7 +1990,7 @@ ct_hpcp_top  x_ct_hpcp_top (
 //  Instance ct_reset_top sub module 
 //==========================================================
 // &Instance("ct_rst_top"); @92
-ct_rst_top  x_ct_rst_top (
+ct_rst_top  x_ct_rst_top ( // {{{
   .forever_coreclk   (forever_coreclk  ),
   .fpu_rst_b         (fpu_rst_b        ),
   .had_rst_b         (had_rst_b        ),
@@ -2003,14 +2003,14 @@ ct_rst_top  x_ct_rst_top (
   .pad_yy_mbist_mode (pad_yy_mbist_mode),
   .pad_yy_scan_mode  (pad_yy_scan_mode ),
   .pad_yy_scan_rst_b (pad_yy_scan_rst_b)
-);
+); // }}}
 
 
 //==========================================================
 //  Instance ct_clk_top sub module 
 //==========================================================
 // &Instance("ct_clk_top"); @97
-ct_clk_top  x_ct_clk_top (
+ct_clk_top  x_ct_clk_top ( // {{{
   .biu_xx_dbg_wakeup  (biu_xx_dbg_wakeup ),
   .biu_xx_int_wakeup  (biu_xx_int_wakeup ),
   .biu_xx_normal_work (biu_xx_normal_work),
@@ -2021,7 +2021,7 @@ ct_clk_top  x_ct_clk_top (
   .forever_coreclk    (forever_coreclk   ),
   .had_xx_clk_en      (had_xx_clk_en     ),
   .pll_core_clk       (pll_core_clk      )
-);
+); // }}}
 
 
 

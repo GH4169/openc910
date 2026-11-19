@@ -1,0 +1,123 @@
+flowchart LR
+  classDef ext fill:#f7f4ef,stroke:#8a7968,color:#241f1a,stroke-width:1.5px
+  classDef load fill:#e9f2ff,stroke:#3977bf,color:#102a43,stroke-width:1.5px
+  classDef store fill:#e4f7f1,stroke:#258f77,color:#123b32,stroke-width:1.5px
+  classDef queue fill:#fff5df,stroke:#c58a26,color:#4a3108,stroke-width:1.5px
+  classDef cache fill:#f0eaff,stroke:#7957b8,color:#27174a,stroke-width:1.5px
+  classDef coh fill:#ffe8ec,stroke:#c44761,color:#4b1621,stroke-width:1.5px
+  classDef ctrl fill:#eef0f3,stroke:#65717e,color:#202830,stroke-width:1.5px
+  classDef bus fill:#e9eef2,stroke:#3f596b,color:#17252e,stroke-width:1.5px
+
+  IDU["IDU / LSIQ\npipe3 load · pipe4 store addr · pipe5 store data"]:::ext
+  MMU["MMU\nVA/PA · TLB · page attributes"]:::ext
+  RTU["RTU\ncommit IID · flush · WB status"]:::ext
+  CP0["CP0 / HAD / HPCP\ncache config · debug · counters"]:::ext
+  BIU["BIU / interconnect\nAR/AW/W · R/B · AC/CR/CD"]:::bus
+  IFU["IFU\nI-cache invalidate completion"]:::ext
+
+  subgraph LSU["ct_lsu_top · C910 Load/Store Unit"]
+    subgraph P["Execution pipelines"]
+      LDAG["LD AG\nEA + alignment + MMU request"]:::load
+      LDDC["LD DC\ntag/dep check · LQ create"]:::load
+      LDDA["LD DA\ncache/fwd/RB data select"]:::load
+      LDWB["LD WB\nresult → IDU · status → RTU"]:::load
+      STAG["ST AG\nEA + alignment + MMU request"]:::store
+      STDC["ST DC\naddress check · SQ create"]:::store
+      STDA["ST DA\ncache/dep check · RB/WMB"]:::store
+      STWB["ST WB\nstatus → RTU"]:::store
+      SDEX1["SD EX1\npipe5 store-data intake"]:::store
+    end
+    subgraph Q["Ordering and outstanding-operation state"]
+      LQ["LQ · 16 entries\nexecuted-load ordering"]:::queue
+      SQ["SQ · 12 entries\naddress/data pair · fwd"]:::queue
+      RB["RB · 8 entries\nread miss / replay tracking"]:::queue
+      WMBCE["WMB CE\nSQ pop → merge decision"]:::queue
+      WMB["WMB · 8 entries\nwrite merge / drain"]:::queue
+    end
+    subgraph MC["Cache, refill and replacement"]
+      DCA["D-cache arbiter\n7 load clients · 6 store clients"]:::cache
+      DC["L1 D-cache · DCACHE_64K\n8 data banks · tag · dirty"]:::cache
+      CB["Cache buffer\nunaligned / boundary data"]:::cache
+      LFB["LFB\n8 address slots · 2 data slots\nlinefill / refill writeback"]:::queue
+      VB["VB + SDB\n2 victim address slots · 3 data slots"]:::queue
+    end
+    subgraph COH["Coherence and maintenance"]
+      SRA["Snoop request arbiter\nBIU AC classification"]:::coh
+      SNQ["SNQ · 6 entries\nordinary snoop + data"]:::coh
+      CTCQ["CTCQ · 6 entries\nI-cache / TLB maintenance"]:::coh
+      SR["Snoop response\nCR + CD return mux"]:::coh
+    end
+    subgraph AUX["Control and optimization"]
+      MCIC["MCIC\nMMU data read client"]:::ctrl
+      BUS["Bus arbiter\nWMB / VB / RB / PFU AR-AW-W"]:::bus
+      PFU["PFU\nL1/L2 prefetch state"]:::ctrl
+      LM["LM\nLR/SC local monitor"]:::ctrl
+      AMR["AMR\nwrite-allocation mode"]:::ctrl
+      ICC["ICC\nD-cache maintenance"]:::ctrl
+      CTRL["LSU ctrl\nclock / wakeup / full / stall"]:::ctrl
+      SFP["Spec-fail predictor\nload/store dependency history"]:::ctrl
+    end
+  end
+
+  IDU -->|pipe3| LDAG
+  IDU -->|pipe4| STAG
+  IDU -->|pipe5| SDEX1
+  MMU <-->|VA / PA / fault / attr| LDAG
+  MMU <-->|VA / PA / fault / attr| STAG
+  LDAG --> LDDC --> LDDA --> LDWB
+  STAG --> STDC --> STDA --> STWB
+  SDEX1 -->|data + SDIQ id| SQ
+  LDDC -->|create / retire| LQ
+  STDC -->|create| SQ
+  SQ -->|forward / dep| LDDA
+  LQ -->|ordering / violation| LDDA
+  LDDA -->|miss / replay / slow read| RB
+  STDA -->|miss / replay| RB
+  STDA -->|commit-ready store| SQ
+  SQ --> WMBCE --> WMB
+  RB <--> LFB
+  LFB <--> DCA
+  VB <--> DCA
+  WMB <--> DCA
+  LDAG -->|load tag/data request| DCA
+  STAG -->|store tag/dirty request| DCA
+  MCIC --> DCA
+  DCA <--> DC
+  CB <--> LDDA
+  WMB --> BUS
+  VB --> BUS
+  RB --> BUS
+  PFU --> BUS
+  BUS <--> BIU
+  BIU -->|R/B| RB
+  BIU -->|R| LFB
+  BIU -->|R| MCIC
+  BIU -->|AC| SRA
+  SRA --> SNQ
+  SRA --> CTCQ
+  SNQ --> DCA
+  SNQ --> VB
+  SNQ --> WMB
+  CTCQ --> SR
+  SNQ --> SR
+  SR -->|CR/CD| BIU
+  CTCQ --> IFU
+  CTCQ --> MMU
+  ICC --> DCA
+  ICC --> VB
+  LM --> SNQ
+  LM --> SQ
+  AMR --> WMBCE
+  CTRL -.-> LDAG
+  CTRL -.-> SQ
+  CTRL -.-> DCA
+  CTRL -.-> SRA
+  SFP -.-> LDDA
+  SFP -.-> STDA
+  CP0 -.-> CTRL
+  CP0 -.-> ICC
+  CP0 -.-> PFU
+  RTU -->|commit / flush| SQ
+  RTU -->|commit / flush| RB
+  LDWB --> RTU
+  STWB --> RTU

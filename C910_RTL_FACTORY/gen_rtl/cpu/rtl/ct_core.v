@@ -17,7 +17,7 @@ limitations under the License.
 // //&Depend("core_golden_port.vp"); @24
 
 // &ModuleBeg; @26
-module ct_core(
+module ct_core( // {{{
   biu_cp0_apb_base,
   biu_cp0_cmplt,
   biu_cp0_coreid,
@@ -476,11 +476,11 @@ module ct_core(
   rtu_yy_xx_retire0_normal,
   rtu_yy_xx_retire1,
   rtu_yy_xx_retire2
-);
+); // }}}
 
 //&Ports("compare", "../../../gen_rtl/cpu/rtl/core_golden_port.v");
 // &Ports; @28
-input   [39 :0]  biu_cp0_apb_base;                       
+input   [39 :0]  biu_cp0_apb_base;                       // {{{
 input            biu_cp0_cmplt;                          
 input   [2  :0]  biu_cp0_coreid;                         
 input            biu_cp0_me_int;                         
@@ -937,12 +937,12 @@ output           rtu_yy_xx_flush;
 output           rtu_yy_xx_retire0;                      
 output           rtu_yy_xx_retire0_normal;               
 output           rtu_yy_xx_retire1;                      
-output           rtu_yy_xx_retire2;                      
+output           rtu_yy_xx_retire2;                      // }}}
 
 // &Regs; @29
 
 // &Wires; @30
-wire    [39 :0]  biu_cp0_apb_base;                       
+wire    [39 :0]  biu_cp0_apb_base;                       // {{{
 wire             biu_cp0_cmplt;                          
 wire    [2  :0]  biu_cp0_coreid;                         
 wire             biu_cp0_me_int;                         
@@ -2460,7 +2460,7 @@ wire             vfpu_rtu_ex5_pipe7_wb_vreg_vr_vld;
 wire             vfpu_rtu_pipe6_cmplt;                   
 wire    [6  :0]  vfpu_rtu_pipe6_iid;                     
 wire             vfpu_rtu_pipe7_cmplt;                   
-wire    [6  :0]  vfpu_rtu_pipe7_iid;                     
+wire    [6  :0]  vfpu_rtu_pipe7_iid;                     // }}}
 
 
 // &Force("input", "pad_yy_scan_mode"); @32
@@ -2477,7 +2477,7 @@ wire    [6  :0]  vfpu_rtu_pipe7_iid;
 //  Instance ct_ifu_top sub module 
 //==========================================================
 // &Instance("ct_ifu_top"); @45
-ct_ifu_top  x_ct_ifu_top (
+ct_ifu_top  x_ct_ifu_top ( // {{{
   .biu_ifu_rd_data                      (biu_ifu_rd_data                     ),
   .biu_ifu_rd_data_vld                  (biu_ifu_rd_data_vld                 ),
   .biu_ifu_rd_grnt                      (biu_ifu_rd_grnt                     ),
@@ -2675,7 +2675,7 @@ ct_ifu_top  x_ct_ifu_top (
   .vfdsu_ifu_debug_ex2_wait             (vfdsu_ifu_debug_ex2_wait            ),
   .vfdsu_ifu_debug_idle                 (vfdsu_ifu_debug_idle                ),
   .vfdsu_ifu_debug_pipe_busy            (vfdsu_ifu_debug_pipe_busy           )
-);
+); // }}}
 
 // &Connect(.cpurst_b   (ifu_rst_b)); @46
 
@@ -2683,7 +2683,7 @@ ct_ifu_top  x_ct_ifu_top (
 //  Instance ct_idu_top sub module 
 //==========================================================
 // &Instance("ct_idu_top"); @51
-ct_idu_top  x_ct_idu_top (
+ct_idu_top  x_ct_idu_top ( // {{{
   .cp0_idu_cskyee                          (cp0_idu_cskyee                         ),
   .cp0_idu_dlb_disable                     (cp0_idu_dlb_disable                    ),
   .cp0_idu_frm                             (cp0_idu_frm                            ),
@@ -3462,7 +3462,7 @@ ct_idu_top  x_ct_idu_top (
   .vfpu_idu_pipe7_vmla_srcv2_no_fwd        (vfpu_idu_pipe7_vmla_srcv2_no_fwd       ),
   .vfpu_idu_vdiv_busy                      (vfpu_idu_vdiv_busy                     ),
   .vfpu_idu_vdiv_wb_stall                  (vfpu_idu_vdiv_wb_stall                 )
-);
+); // }}}
 
 // &Connect(.cpurst_b   (idu_rst_b)); @52
 
@@ -3470,7 +3470,7 @@ ct_idu_top  x_ct_idu_top (
 //  Instance ct_iu_top sub module 
 //==========================================================
 // &Instance("ct_iu_top"); @57
-ct_iu_top  x_ct_iu_top (
+ct_iu_top  x_ct_iu_top ( // {{{
   .cp0_iu_div_entry_disable            (cp0_iu_div_entry_disable           ),
   .cp0_iu_div_entry_disable_clr        (cp0_iu_div_entry_disable_clr       ),
   .cp0_iu_ex3_abnormal                 (cp0_iu_ex3_abnormal                ),
@@ -3720,7 +3720,7 @@ ct_iu_top  x_ct_iu_top (
   .vfpu_iu_ex2_pipe7_mfvr_data         (vfpu_iu_ex2_pipe7_mfvr_data        ),
   .vfpu_iu_ex2_pipe7_mfvr_data_vld     (vfpu_iu_ex2_pipe7_mfvr_data_vld    ),
   .vfpu_iu_ex2_pipe7_mfvr_preg         (vfpu_iu_ex2_pipe7_mfvr_preg        )
-);
+); // }}}
 
 // &Connect(.cpurst_b   (idu_rst_b)); @58
 
@@ -3730,7 +3730,7 @@ ct_iu_top  x_ct_iu_top (
 // &Instance("ct_vfpu_top_dummy"); @64
 // &Connect(.cpurst_b   (fpu_rst_b)); @65
 // &Instance("ct_vfpu_top"); @67
-ct_vfpu_top  x_ct_vfpu_top (
+ct_vfpu_top  x_ct_vfpu_top ( // {{{
   .cp0_vfpu_fcsr                         (cp0_vfpu_fcsr                        ),
   .cp0_vfpu_fxcr                         (cp0_vfpu_fxcr                        ),
   .cp0_vfpu_icg_en                       (cp0_vfpu_icg_en                      ),
@@ -3973,7 +3973,7 @@ ct_vfpu_top  x_ct_vfpu_top (
   .vfpu_rtu_pipe6_iid                    (vfpu_rtu_pipe6_iid                   ),
   .vfpu_rtu_pipe7_cmplt                  (vfpu_rtu_pipe7_cmplt                 ),
   .vfpu_rtu_pipe7_iid                    (vfpu_rtu_pipe7_iid                   )
-);
+); // }}}
 
 // &Connect(.cpurst_b   (fpu_rst_b)); @68
 // //&Connect(.top_forever_cpuclk (forever_cpuclk)); @70
@@ -3982,7 +3982,7 @@ ct_vfpu_top  x_ct_vfpu_top (
 //  Instance ct_lsu_top sub module 
 //==========================================================
 // &Instance("ct_lsu_top"); @75
-ct_lsu_top  x_ct_lsu_top (
+ct_lsu_top  x_ct_lsu_top ( // {{{
   .biu_lsu_ac_addr                         (biu_lsu_ac_addr                        ),
   .biu_lsu_ac_prot                         (biu_lsu_ac_prot                        ),
   .biu_lsu_ac_req                          (biu_lsu_ac_req                         ),
@@ -4477,7 +4477,7 @@ ct_lsu_top  x_ct_lsu_top (
   .rtu_yy_xx_commit2_iid                   (rtu_yy_xx_commit2_iid                  ),
   .rtu_yy_xx_dbgon                         (rtu_yy_xx_dbgon                        ),
   .rtu_yy_xx_flush                         (rtu_yy_xx_flush                        )
-);
+); // }}}
 
 // &Connect(.cpurst_b   (lsu_rst_b)); @76
 
@@ -4485,7 +4485,7 @@ ct_lsu_top  x_ct_lsu_top (
 //  Instance ct_cp0_top sub module 
 //==========================================================
 // &Instance("ct_cp0_top"); @81
-ct_cp0_top  x_ct_cp0_top (
+ct_cp0_top  x_ct_cp0_top ( // {{{
   .biu_cp0_apb_base                (biu_cp0_apb_base               ),
   .biu_cp0_cmplt                   (biu_cp0_cmplt                  ),
   .biu_cp0_coreid                  (biu_cp0_coreid                 ),
@@ -4703,7 +4703,7 @@ ct_cp0_top  x_ct_cp0_top (
   .rtu_yy_xx_dbgon                 (rtu_yy_xx_dbgon                ),
   .rtu_yy_xx_expt_vec              (rtu_yy_xx_expt_vec             ),
   .rtu_yy_xx_flush                 (rtu_yy_xx_flush                )
-);
+); // }}}
 
 // &Connect(.cpurst_b   (idu_rst_b)); @82
 
@@ -4711,7 +4711,7 @@ ct_cp0_top  x_ct_cp0_top (
 //  Instance ct_rtu_top sub module 
 //==========================================================
 // &Instance("ct_rtu_top"); @87
-ct_rtu_top  x_ct_rtu_top (
+ct_rtu_top  x_ct_rtu_top ( // {{{
   .cp0_rtu_icg_en                       (cp0_rtu_icg_en                      ),
   .cp0_rtu_srt_en                       (cp0_rtu_srt_en                      ),
   .cp0_rtu_xx_int_b                     (cp0_rtu_xx_int_b                    ),
@@ -5165,7 +5165,7 @@ ct_rtu_top  x_ct_rtu_top (
   .vfpu_rtu_pipe6_iid                   (vfpu_rtu_pipe6_iid                  ),
   .vfpu_rtu_pipe7_cmplt                 (vfpu_rtu_pipe7_cmplt                ),
   .vfpu_rtu_pipe7_iid                   (vfpu_rtu_pipe7_iid                  )
-);
+); // }}}
 
 // &Connect(.cpurst_b   (idu_rst_b)); @88
 //&Shell("../../../tools/scripts/delt_core_port");

@@ -1,0 +1,28 @@
+flowchart LR
+  classDef client fill:#eef0f3,stroke:#65717e,color:#202830
+  classDef arb fill:#f0eaff,stroke:#7957b8,color:#27174a,stroke-width:2px
+  classDef array fill:#e9f2ff,stroke:#3977bf,color:#102a43
+  classDef queue fill:#fff5df,stroke:#c58a26,color:#4a3108
+  classDef bus fill:#e9eef2,stroke:#3f596b,color:#17252e
+  LD["AG + DC borrow\nload tag/data"]:::client --> ARB["ct_lsu_dcache_arb\npriority + serial selection"]:::arb
+  ST["AG + DC borrow\nstore tag/dirty"]:::client --> ARB
+  MC["MCIC"]:::client --> ARB
+  WM["WMB"]:::client --> ARB
+  LF2["LFB\nrefill read/write"]:::queue --> ARB
+  VB2["VB\nvictim / settle way"]:::queue --> ARB
+  SN["SNQ\nsnoop borrow"]:::queue --> ARB
+  IC["ICC\nmaintenance"]:::client --> ARB
+  ARB -->|read tag/data| ARR["ct_lsu_dcache_top\n8 × 32-bit data banks\nload tag / store tag / dirty"]:::array
+  ARR -->|dout| ARB
+  ARB -->|grant / borrow / settle way| LD
+  ARB -->|grant / borrow| ST
+  ARB -->|write tag/data/dirty| ARR
+  LF2 -->|linefill payload| ARB
+  ARB -->|refill complete| LF2
+  WM -->|read / write request| BUS["ct_lsu_bus_arb"]:::bus
+  RB3["RB"]:::queue -->|AR| BUS
+  PF["PFU"]:::client -->|AR| BUS
+  VB2 -->|AW + W| BUS
+  BUS -->|AR / AW / W| BI["BIU"]:::bus
+  BI -->|R / B| RB3
+  BI -->|R beats| LF2

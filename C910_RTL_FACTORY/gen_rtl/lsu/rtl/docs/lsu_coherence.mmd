@@ -1,0 +1,21 @@
+flowchart LR
+  classDef bus fill:#e9eef2,stroke:#3f596b,color:#17252e
+  classDef coh fill:#ffe8ec,stroke:#c44761,color:#4b1621
+  classDef cache fill:#f0eaff,stroke:#7957b8,color:#27174a
+  classDef ctrl fill:#eef0f3,stroke:#65717e,color:#202830
+  BI2["BIU AC\naddr / prot / snoop"]:::bus --> RA["Snoop request arbiter\nSNQ vs CTCQ admission"]:::coh
+  RA --> SN2["SNQ\nordinary snoop entries"]:::coh
+  RA --> CT["CTCQ\ncache/TLB control entries"]:::coh
+  SN2 -->|tag/data borrow| CA["D-cache arbiter"]:::cache
+  SN2 -->|victim / WMB dependency| VB3["VB / WMB"]:::cache
+  CT -->|I-cache invalidation| IF2["IFU"]:::ctrl
+  CT -->|TLB invalidation| MM2["MMU"]:::ctrl
+  SN2 --> RESP["Snoop response\nCR / CD mux"]:::coh
+  CT --> RESP
+  RESP -->|CR / CD| BI2
+  ICC2["ICC\nD-cache clr/inv/read"]:::ctrl --> CA
+  LM2["LM\nLR/SC state"]:::ctrl --> SN2
+  AMR2["AMR\nwrite mode"]:::ctrl --> WMB2["WMB CE / WMB"]:::ctrl
+  CTRL2["LSU ctrl\nclock gating · wakeup · full/stall"]:::ctrl -.-> RA
+  CTRL2 -.-> CA
+  CTRL2 -.-> WMB2

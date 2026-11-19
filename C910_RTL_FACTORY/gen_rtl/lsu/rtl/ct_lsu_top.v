@@ -14,7 +14,7 @@ limitations under the License.
 */
 
 // &ModuleBeg; @24
-module ct_lsu_top(
+module ct_lsu_top(// {{{
   biu_lsu_ac_addr,
   biu_lsu_ac_prot,
   biu_lsu_ac_req,
@@ -509,10 +509,10 @@ module ct_lsu_top(
   rtu_yy_xx_commit2_iid,
   rtu_yy_xx_dbgon,
   rtu_yy_xx_flush
-);
+);// }}}
 
-// &Ports; @25
-input   [39 :0]  biu_lsu_ac_addr;                        
+// &Ports; @25// {{{
+input   [39 :0]  biu_lsu_ac_addr; // {{{
 input   [2  :0]  biu_lsu_ac_prot;                        
 input            biu_lsu_ac_req;                         
 input   [3  :0]  biu_lsu_ac_snoop;                       
@@ -530,8 +530,8 @@ input            biu_lsu_r_last;
 input   [3  :0]  biu_lsu_r_resp;                         
 input            biu_lsu_r_vld;                          
 input            biu_lsu_w_vb_grnt;                      
-input            biu_lsu_w_wmb_grnt;                     
-input            cp0_lsu_amr;                            
+input            biu_lsu_w_wmb_grnt;                     // }}}
+input            cp0_lsu_amr;                            // {{{
 input            cp0_lsu_amr2;                           
 input            cp0_lsu_cb_aclr_dis;                    
 input            cp0_lsu_corr_dis;                       
@@ -564,7 +564,7 @@ input            cp0_lsu_wr_burst_dis;
 input            cp0_yy_clk_en;                          
 input            cp0_yy_dcache_pref_en;                  
 input   [1  :0]  cp0_yy_priv_mode;                       
-input            cp0_yy_virtual_mode;                    
+input            cp0_yy_virtual_mode;                    // }}}
 input            cpurst_b;                               
 input            forever_cpuclk;                         
 input            had_lsu_bus_trace_en;                   
@@ -576,7 +576,8 @@ input   [39 :0]  had_yy_xx_bkptb_base;
 input   [7  :0]  had_yy_xx_bkptb_mask;                   
 input            had_yy_xx_bkptb_rc;                     
 input            hpcp_lsu_cnt_en;                        
-input            idu_lsu_rf_pipe3_already_da;            
+
+input            idu_lsu_rf_pipe3_already_da;            // {{{
 input            idu_lsu_rf_pipe3_atomic;                
 input            idu_lsu_rf_pipe3_bkpta_data;            
 input            idu_lsu_rf_pipe3_bkptb_data;            
@@ -673,7 +674,8 @@ input            idu_lsu_vmb_create1_unit_stride;
 input            idu_lsu_vmb_create1_vamo;               
 input   [7  :0]  idu_lsu_vmb_create1_vl;                 
 input   [5  :0]  idu_lsu_vmb_create1_vreg;               
-input   [1  :0]  idu_lsu_vmb_create1_vsew;               
+input   [1  :0]  idu_lsu_vmb_create1_vsew;               // }}}
+
 input            ifu_lsu_icache_inv_done;                
 input            mmu_lsu_access_fault0;                  
 input            mmu_lsu_access_fault1;                  
@@ -815,7 +817,8 @@ output           lsu_hpcp_replay_discard_sq;
 output           lsu_hpcp_st_stall_cross_4k;             
 output           lsu_hpcp_st_stall_other;                
 output  [1  :0]  lsu_hpcp_unalign_inst;                  
-output           lsu_idu_ag_pipe3_load_inst_vld;         
+
+output           lsu_idu_ag_pipe3_load_inst_vld;         // {{{
 output  [6  :0]  lsu_idu_ag_pipe3_preg_dup0;             
 output  [6  :0]  lsu_idu_ag_pipe3_preg_dup1;             
 output  [6  :0]  lsu_idu_ag_pipe3_preg_dup2;             
@@ -931,7 +934,8 @@ output  [63 :0]  lsu_idu_wb_pipe3_wb_vreg_vr0_expand;
 output           lsu_idu_wb_pipe3_wb_vreg_vr0_vld;       
 output  [63 :0]  lsu_idu_wb_pipe3_wb_vreg_vr1_data;      
 output  [63 :0]  lsu_idu_wb_pipe3_wb_vreg_vr1_expand;    
-output           lsu_idu_wb_pipe3_wb_vreg_vr1_vld;       
+output           lsu_idu_wb_pipe3_wb_vreg_vr1_vld;       // }}}
+
 output           lsu_ifu_icache_all_inv;                 
 output  [5  :0]  lsu_ifu_icache_index;                   
 output           lsu_ifu_icache_line_inv;                
@@ -1005,12 +1009,12 @@ output           lsu_rtu_wb_pipe4_no_spec_miss;
 output           lsu_rtu_wb_pipe4_spec_fail;             
 output  [6  :0]  lsu_rtu_wb_pipe4_vstart;                
 output           lsu_rtu_wb_pipe4_vstart_vld;            
-output           lsu_yy_xx_no_op;                        
+output           lsu_yy_xx_no_op; // }}}
 
 // &Regs; @26
 
 // &Wires; @27
-wire    [7  :0]  ag_dcache_arb_ld_data_gateclk_en;       
+wire    [7  :0]  ag_dcache_arb_ld_data_gateclk_en;       // {{{
 wire    [10 :0]  ag_dcache_arb_ld_data_high_idx;         
 wire    [10 :0]  ag_dcache_arb_ld_data_low_idx;          
 wire    [7  :0]  ag_dcache_arb_ld_data_req;              
@@ -2737,10 +2741,10 @@ wire             wmb_vb_set_way_mode;
 wire    [7  :0]  wmb_write_ptr;                          
 wire    [2  :0]  wmb_write_ptr_encode;                   
 wire    [39 :0]  wmb_write_req_addr;                     
-wire             wmb_write_req_icc;                      
+wire             wmb_write_req_icc;                      // }}}
 
 
-// &Force("input","idu_lsu_vmb_create0_dp_en"); @31
+// &Force("input","idu_lsu_vmb_create0_dp_en"); @31{{{
 // &Force("input","idu_lsu_vmb_create0_dst_ready"); @32
 // &Force("input","idu_lsu_vmb_create0_en"); @33
 // &Force("input","idu_lsu_vmb_create0_sdiq_entry"); @34
@@ -2772,7 +2776,7 @@ wire             wmb_write_req_icc;
 // &Force("bus","idu_lsu_vmb_create1_vreg",5,0); @60
 // &Force("bus","idu_lsu_vmb_create1_vsew",1,0); @61
 // &Force("bus","idu_lsu_vmb_create1_vl",7,0); @62
-// &Force("bus","cp0_lsu_vstart",6,0); @63
+// &Force("bus","cp0_lsu_vstart",6,0); @63}}}
 
 
 assign lsu_idu_vmb_create0_entry[7:0] = 8'b0;
@@ -2794,7 +2798,7 @@ assign lsu_idu_vmb_full_updt_clk_en = 1'b0;
 //                    AG/EX1 Stage
 //==========================================================
 // &Instance("ct_lsu_ld_ag","x_ct_lsu_ld_ag"); @85
-ct_lsu_ld_ag  x_ct_lsu_ld_ag (
+ct_lsu_ld_ag  x_ct_lsu_ld_ag (// {{{
   .ag_dcache_arb_ld_data_gateclk_en  (ag_dcache_arb_ld_data_gateclk_en ),
   .ag_dcache_arb_ld_data_high_idx    (ag_dcache_arb_ld_data_high_idx   ),
   .ag_dcache_arb_ld_data_low_idx     (ag_dcache_arb_ld_data_low_idx    ),
@@ -2936,11 +2940,11 @@ ct_lsu_ld_ag  x_ct_lsu_ld_ag (
   .rtu_yy_xx_commit2_iid             (rtu_yy_xx_commit2_iid            ),
   .rtu_yy_xx_flush                   (rtu_yy_xx_flush                  ),
   .st_ag_iid                         (st_ag_iid                        )
-);
+);// }}}
 
 //&Instance("ct_lsu_cmit_monitor","x_ct_lsu_cmit_monitor");
 // &Instance("ct_lsu_st_ag","x_ct_lsu_st_ag"); @87
-ct_lsu_st_ag  x_ct_lsu_st_ag (
+ct_lsu_st_ag  x_ct_lsu_st_ag (// {{{
   .ag_dcache_arb_st_dirty_gateclk_en (ag_dcache_arb_st_dirty_gateclk_en),
   .ag_dcache_arb_st_dirty_idx        (ag_dcache_arb_st_dirty_idx       ),
   .ag_dcache_arb_st_dirty_req        (ag_dcache_arb_st_dirty_req       ),
@@ -3082,10 +3086,10 @@ ct_lsu_st_ag  x_ct_lsu_st_ag (
   .st_ag_utlb_miss                   (st_ag_utlb_miss                  ),
   .st_ag_vpn                         (st_ag_vpn                        ),
   .st_rf_inst_vld                    (st_rf_inst_vld                   )
-);
+);// }}}
 
 // &Instance("ct_lsu_sd_ex1","x_ct_lsu_sd_ex1"); @88
-ct_lsu_sd_ex1  x_ct_lsu_sd_ex1 (
+ct_lsu_sd_ex1  x_ct_lsu_sd_ex1 (// {{{
   .cp0_lsu_icg_en                (cp0_lsu_icg_en               ),
   .cp0_yy_clk_en                 (cp0_yy_clk_en                ),
   .cpurst_b                      (cpurst_b                     ),
@@ -3112,11 +3116,11 @@ ct_lsu_sd_ex1  x_ct_lsu_sd_ex1 (
   .sd_ex1_inst_vld               (sd_ex1_inst_vld              ),
   .sd_rf_ex1_sdid                (sd_rf_ex1_sdid               ),
   .sd_rf_inst_vld_short          (sd_rf_inst_vld_short         )
-);
+);// }}}
 
 
 // &Instance("ct_lsu_mcic","x_ct_lsu_mcic"); @90
-ct_lsu_mcic  x_ct_lsu_mcic (
+ct_lsu_mcic  x_ct_lsu_mcic (// {{{
   .biu_lsu_r_data                     (biu_lsu_r_data                    ),
   .biu_lsu_r_id                       (biu_lsu_r_id                      ),
   .biu_lsu_r_resp                     (biu_lsu_r_resp                    ),
@@ -3153,10 +3157,10 @@ ct_lsu_mcic  x_ct_lsu_mcic (
   .rb_mcic_biu_req_success            (rb_mcic_biu_req_success           ),
   .rb_mcic_ecc_err                    (rb_mcic_ecc_err                   ),
   .rb_mcic_not_full                   (rb_mcic_not_full                  )
-);
+);// }}}
 
 // &Instance("ct_lsu_dcache_arb","x_ct_lsu_dcache_arb"); @91
-ct_lsu_dcache_arb  x_ct_lsu_dcache_arb (
+ct_lsu_dcache_arb  x_ct_lsu_dcache_arb (// {{{
   .ag_dcache_arb_ld_data_gateclk_en   (ag_dcache_arb_ld_data_gateclk_en  ),
   .ag_dcache_arb_ld_data_high_idx     (ag_dcache_arb_ld_data_high_idx    ),
   .ag_dcache_arb_ld_data_low_idx      (ag_dcache_arb_ld_data_low_idx     ),
@@ -3363,13 +3367,13 @@ ct_lsu_dcache_arb  x_ct_lsu_dcache_arb (
   .wmb_dcache_arb_st_dirty_req        (wmb_dcache_arb_st_dirty_req       ),
   .wmb_dcache_arb_st_dirty_wen        (wmb_dcache_arb_st_dirty_wen       ),
   .wmb_dcache_arb_st_req              (wmb_dcache_arb_st_req             )
-);
+);// }}}
 
 //==========================================================
 //                       DC Stage
 //==========================================================
 // &Instance("ct_lsu_dcache_top","x_ct_lsu_dcache_top"); @95
-ct_lsu_dcache_top  x_ct_lsu_dcache_top (
+ct_lsu_dcache_top  x_ct_lsu_dcache_top (// {{{
   .cp0_lsu_icg_en                 (cp0_lsu_icg_en                ),
   .dcache_lsu_ld_data_bank0_dout  (dcache_lsu_ld_data_bank0_dout ),
   .dcache_lsu_ld_data_bank1_dout  (dcache_lsu_ld_data_bank1_dout ),
@@ -3410,10 +3414,10 @@ ct_lsu_dcache_top  x_ct_lsu_dcache_top (
   .lsu_dcache_st_tag_sel_b        (lsu_dcache_st_tag_sel_b       ),
   .lsu_dcache_st_tag_wen_b        (lsu_dcache_st_tag_wen_b       ),
   .pad_yy_icg_scan_en             (pad_yy_icg_scan_en            )
-);
+);// }}}
 
 // &Instance("ct_lsu_ld_dc","x_ct_lsu_ld_dc"); @96
-ct_lsu_ld_dc  x_ct_lsu_ld_dc (
+ct_lsu_ld_dc  x_ct_lsu_ld_dc (// {{{
   .cb_ld_dc_addr_hit                       (cb_ld_dc_addr_hit                      ),
   .cp0_lsu_da_fwd_dis                      (cp0_lsu_da_fwd_dis                     ),
   .cp0_lsu_dcache_en                       (cp0_lsu_dcache_en                      ),
@@ -3632,10 +3636,10 @@ ct_lsu_ld_dc  x_ct_lsu_ld_dc (
   .wmb_ld_dc_cancel_acc_req                (wmb_ld_dc_cancel_acc_req               ),
   .wmb_ld_dc_discard_req                   (wmb_ld_dc_discard_req                  ),
   .wmb_ld_dc_fwd_req                       (wmb_ld_dc_fwd_req                      )
-);
+);// }}}
 
 // &Instance("ct_lsu_st_dc","x_ct_lsu_st_dc"); @97
-ct_lsu_st_dc  x_ct_lsu_st_dc (
+ct_lsu_st_dc  x_ct_lsu_st_dc (// {{{
   .cp0_lsu_dcache_en                 (cp0_lsu_dcache_en                ),
   .cp0_lsu_icg_en                    (cp0_lsu_icg_en                   ),
   .cp0_lsu_l2_st_pref_en             (cp0_lsu_l2_st_pref_en            ),
@@ -3794,11 +3798,11 @@ ct_lsu_st_dc  x_ct_lsu_st_dc (
   .st_dc_tlb_busy_gateclk_en         (st_dc_tlb_busy_gateclk_en        ),
   .st_dc_vector_nop                  (st_dc_vector_nop                 ),
   .st_dc_wo_st_inst                  (st_dc_wo_st_inst                 )
-);
+);// }}}
 
 
 // &Instance("ct_lsu_lq","x_ct_lsu_lq"); @99
-ct_lsu_lq  x_ct_lsu_lq (
+ct_lsu_lq  x_ct_lsu_lq (// {{{
   .cp0_lsu_corr_dis            (cp0_lsu_corr_dis           ),
   .cp0_lsu_icg_en              (cp0_lsu_icg_en             ),
   .cp0_yy_clk_en               (cp0_yy_clk_en              ),
@@ -3837,10 +3841,10 @@ ct_lsu_lq  x_ct_lsu_lq (
   .st_dc_chk_st_inst_vld       (st_dc_chk_st_inst_vld      ),
   .st_dc_chk_statomic_inst_vld (st_dc_chk_statomic_inst_vld),
   .st_dc_iid                   (st_dc_iid                  )
-);
+);// }}}
 
 // &Instance("ct_lsu_sq","x_ct_lsu_sq"); @100
-ct_lsu_sq  x_ct_lsu_sq (
+ct_lsu_sq  x_ct_lsu_sq (// {{{
   .cp0_lsu_icg_en                   (cp0_lsu_icg_en                  ),
   .cp0_yy_clk_en                    (cp0_yy_clk_en                   ),
   .cp0_yy_priv_mode                 (cp0_yy_priv_mode                ),
@@ -4007,13 +4011,13 @@ ct_lsu_sq  x_ct_lsu_sq (
   .wmb_ce_vstart_vld                (wmb_ce_vstart_vld               ),
   .wmb_sq_pop_grnt                  (wmb_sq_pop_grnt                 ),
   .wmb_sq_pop_to_ce_grnt            (wmb_sq_pop_to_ce_grnt           )
-);
+);// }}}
 
 //==========================================================
 //                       DA Stage
 //==========================================================
 // &Instance("ct_lsu_ld_da","x_ct_lsu_ld_da"); @104
-ct_lsu_ld_da  x_ct_lsu_ld_da (
+ct_lsu_ld_da  x_ct_lsu_ld_da (// {{{
   .cb_ld_da_data                        (cb_ld_da_data                       ),
   .cb_ld_da_data_vld                    (cb_ld_da_data_vld                   ),
   .cp0_lsu_dcache_en                    (cp0_lsu_dcache_en                   ),
@@ -4263,10 +4267,10 @@ ct_lsu_ld_da  x_ct_lsu_ld_da (
   .st_da_addr                           (st_da_addr                          ),
   .wmb_ld_da_fwd_data                   (wmb_ld_da_fwd_data                  ),
   .wmb_ld_dc_discard_req                (wmb_ld_dc_discard_req               )
-);
+);// }}}
 
 // &Instance("ct_lsu_st_da","x_ct_lsu_st_da"); @105
-ct_lsu_st_da  x_ct_lsu_st_da (
+ct_lsu_st_da  x_ct_lsu_st_da (// {{{
   .amr_wa_cancel                        (amr_wa_cancel                       ),
   .cp0_lsu_dcache_en                    (cp0_lsu_dcache_en                   ),
   .cp0_lsu_icg_en                       (cp0_lsu_icg_en                      ),
@@ -4444,11 +4448,11 @@ ct_lsu_st_da  x_ct_lsu_st_da (
   .st_dc_st                             (st_dc_st                            ),
   .st_dc_sync_fence                     (st_dc_sync_fence                    ),
   .st_dc_vector_nop                     (st_dc_vector_nop                    )
-);
+);// }}}
 
 
 // &Instance("ct_lsu_rb","x_ct_lsu_rb"); @107
-ct_lsu_rb  x_ct_lsu_rb (
+ct_lsu_rb  x_ct_lsu_rb (// {{{
   .biu_lsu_b_id                   (biu_lsu_b_id                  ),
   .biu_lsu_b_vld                  (biu_lsu_b_vld                 ),
   .biu_lsu_r_data                 (biu_lsu_r_data                ),
@@ -4625,10 +4629,10 @@ ct_lsu_rb  x_ct_lsu_rb (
   .wmb_rb_biu_req_hit_idx         (wmb_rb_biu_req_hit_idx        ),
   .wmb_rb_so_pending              (wmb_rb_so_pending             ),
   .wmb_sync_fence_biu_req_success (wmb_sync_fence_biu_req_success)
-);
+);// }}}
 
 // &Instance("ct_lsu_wmb","x_ct_lsu_wmb"); @108
-ct_lsu_wmb  x_ct_lsu_wmb (
+ct_lsu_wmb  x_ct_lsu_wmb (// {{{
   .amr_l2_mem_set                     (amr_l2_mem_set                    ),
   .biu_lsu_b_id                       (biu_lsu_b_id                      ),
   .biu_lsu_b_resp                     (biu_lsu_b_resp                    ),
@@ -4867,10 +4871,10 @@ ct_lsu_wmb  x_ct_lsu_wmb (
   .wmb_write_ptr_encode               (wmb_write_ptr_encode              ),
   .wmb_write_req_addr                 (wmb_write_req_addr                ),
   .wmb_write_req_icc                  (wmb_write_req_icc                 )
-);
+);// }}}
 
 // &Instance("ct_lsu_wmb_ce","x_ct_lsu_wmb_ce"); @109
-ct_lsu_wmb_ce  x_ct_lsu_wmb_ce (
+ct_lsu_wmb_ce  x_ct_lsu_wmb_ce (// {{{
   .cp0_lsu_icg_en                    (cp0_lsu_icg_en                   ),
   .cp0_yy_clk_en                     (cp0_yy_clk_en                    ),
   .cpurst_b                          (cpurst_b                         ),
@@ -4951,14 +4955,14 @@ ct_lsu_wmb_ce  x_ct_lsu_wmb_ce (
   .wmb_ce_write_imme                 (wmb_ce_write_imme                ),
   .wmb_clk                           (wmb_clk                          ),
   .wmb_entry_vld                     (wmb_entry_vld                    )
-);
+);// }}}
 
 
 //==========================================================
 //                       WB Stage
 //==========================================================
 // &Instance("ct_lsu_ld_wb","x_ct_lsu_ld_wb"); @114
-ct_lsu_ld_wb  x_ct_lsu_ld_wb (
+ct_lsu_ld_wb  x_ct_lsu_ld_wb (// {{{
   .cp0_lsu_icg_en                      (cp0_lsu_icg_en                     ),
   .cp0_yy_clk_en                       (cp0_yy_clk_en                      ),
   .cpurst_b                            (cpurst_b                           ),
@@ -5078,10 +5082,10 @@ ct_lsu_ld_wb  x_ct_lsu_ld_wb (
   .wmb_ld_wb_preg_sign_sel             (wmb_ld_wb_preg_sign_sel            ),
   .wmb_ld_wb_vreg                      (wmb_ld_wb_vreg                     ),
   .wmb_ld_wb_vreg_sign_sel             (wmb_ld_wb_vreg_sign_sel            )
-);
+);// }}}
 
 // &Instance("ct_lsu_st_wb","x_ct_lsu_st_wb"); @115
-ct_lsu_st_wb  x_ct_lsu_st_wb (
+ct_lsu_st_wb  x_ct_lsu_st_wb (// {{{
   .cp0_lsu_icg_en                   (cp0_lsu_icg_en                  ),
   .cp0_yy_clk_en                    (cp0_yy_clk_en                   ),
   .cpurst_b                         (cpurst_b                        ),
@@ -5122,14 +5126,14 @@ ct_lsu_st_wb  x_ct_lsu_st_wb (
   .wmb_st_wb_iid                    (wmb_st_wb_iid                   ),
   .wmb_st_wb_inst_flush             (wmb_st_wb_inst_flush            ),
   .wmb_st_wb_spec_fail              (wmb_st_wb_spec_fail             )
-);
+);// }}}
 
 
 //==========================================================
 //                Linefill/Victim buffer
 //==========================================================
 // &Instance("ct_lsu_lfb","x_ct_lsu_lfb"); @120
-ct_lsu_lfb  x_ct_lsu_lfb (
+ct_lsu_lfb  x_ct_lsu_lfb (// {{{
   .biu_lsu_r_data                     (biu_lsu_r_data                    ),
   .biu_lsu_r_id                       (biu_lsu_r_id                      ),
   .biu_lsu_r_last                     (biu_lsu_r_last                    ),
@@ -5242,10 +5246,10 @@ ct_lsu_lfb  x_ct_lsu_lfb (
   .vb_lfb_vb_req_hit_idx              (vb_lfb_vb_req_hit_idx             ),
   .wmb_read_req_addr                  (wmb_read_req_addr                 ),
   .wmb_write_req_addr                 (wmb_write_req_addr                )
-);
+);// }}}
 
 // &Instance("ct_lsu_vb","x_ct_lsu_vb"); @121
-ct_lsu_vb  x_ct_lsu_vb (
+ct_lsu_vb  x_ct_lsu_vb (// {{{
   .biu_lsu_b_id                      (biu_lsu_b_id                     ),
   .biu_lsu_b_vld                     (biu_lsu_b_vld                    ),
   .bus_arb_vb_aw_grnt                (bus_arb_vb_aw_grnt               ),
@@ -5400,10 +5404,10 @@ ct_lsu_vb  x_ct_lsu_vb (
   .wmb_vb_set_way_mode               (wmb_vb_set_way_mode              ),
   .wmb_write_ptr_encode              (wmb_write_ptr_encode             ),
   .wmb_write_req_addr                (wmb_write_req_addr               )
-);
+);// }}}
 
 // &Instance("ct_lsu_vb_sdb_data","x_ct_lsu_vb_sdb_data"); @122
-ct_lsu_vb_sdb_data  x_ct_lsu_vb_sdb_data (
+ct_lsu_vb_sdb_data  x_ct_lsu_vb_sdb_data (// {{{
   .cp0_lsu_icg_en                  (cp0_lsu_icg_en                 ),
   .cpurst_b                        (cpurst_b                       ),
   .forever_cpuclk                  (forever_cpuclk                 ),
@@ -5452,14 +5456,14 @@ ct_lsu_vb_sdb_data  x_ct_lsu_vb_sdb_data (
   .vb_sdb_data_entry_vld           (vb_sdb_data_entry_vld          ),
   .vb_wd_sm_data_bias              (vb_wd_sm_data_bias             ),
   .vb_wd_sm_data_pop_req           (vb_wd_sm_data_pop_req          )
-);
+);// }}}
 
 
 //==========================================================
 //                      Snoop
 //==========================================================
 // &Instance("ct_lsu_snoop_req_arbiter","x_ct_lsu_snoop_req_arbiter"); @127
-ct_lsu_snoop_req_arbiter  x_ct_lsu_snoop_req_arbiter (
+ct_lsu_snoop_req_arbiter  x_ct_lsu_snoop_req_arbiter (// {{{
   .arb_ctcq_ctc_2nd_trans      (arb_ctcq_ctc_2nd_trans     ),
   .arb_ctcq_ctc_asid_va        (arb_ctcq_ctc_asid_va       ),
   .arb_ctcq_ctc_type           (arb_ctcq_ctc_type          ),
@@ -5497,10 +5501,10 @@ ct_lsu_snoop_req_arbiter  x_ct_lsu_snoop_req_arbiter (
   .snq_biu_cr_valid            (snq_biu_cr_valid           ),
   .vb_snq_depd                 (vb_snq_depd                ),
   .wmb_snq_depd                (wmb_snq_depd               )
-);
+);// }}}
 
 // &Instance("ct_lsu_snoop_resp","x_ct_lsu_snoop_resp"); @128
-ct_lsu_snoop_resp  x_ct_lsu_snoop_resp (
+ct_lsu_snoop_resp  x_ct_lsu_snoop_resp (// {{{
   .biu_ctcq_cr_ready     (biu_ctcq_cr_ready    ),
   .biu_lsu_cd_ready      (biu_lsu_cd_ready     ),
   .biu_lsu_cr_ready      (biu_lsu_cr_ready     ),
@@ -5519,10 +5523,10 @@ ct_lsu_snoop_resp  x_ct_lsu_snoop_resp (
   .sdb_biu_cd_valid      (sdb_biu_cd_valid     ),
   .snq_biu_cr_resp       (snq_biu_cr_resp      ),
   .snq_biu_cr_valid      (snq_biu_cr_valid     )
-);
+);// }}}
 
 // &Instance("ct_lsu_snoop_ctcq","x_ct_lsu_snoop_ctcq"); @129
-ct_lsu_snoop_ctcq  x_ct_lsu_snoop_ctcq (
+ct_lsu_snoop_ctcq  x_ct_lsu_snoop_ctcq (// {{{
   .arb_ctcq_ctc_2nd_trans      (arb_ctcq_ctc_2nd_trans     ),
   .arb_ctcq_ctc_asid_va        (arb_ctcq_ctc_asid_va       ),
   .arb_ctcq_ctc_type           (arb_ctcq_ctc_type          ),
@@ -5556,10 +5560,10 @@ ct_lsu_snoop_ctcq  x_ct_lsu_snoop_ctcq (
   .lsu_snoop_clk               (lsu_snoop_clk              ),
   .mmu_lsu_tlb_inv_done        (mmu_lsu_tlb_inv_done       ),
   .pad_yy_icg_scan_en          (pad_yy_icg_scan_en         )
-);
+);// }}}
 
 // &Instance("ct_lsu_snoop_snq","x_ct_lsu_snoop_snq"); @131
-ct_lsu_snoop_snq  x_ct_lsu_snoop_snq (
+ct_lsu_snoop_snq  x_ct_lsu_snoop_snq (// {{{
   .arb_snq_entry_oldest_index         (arb_snq_entry_oldest_index        ),
   .arb_snq_snoop_addr                 (arb_snq_snoop_addr                ),
   .arb_snq_snoop_depd                 (arb_snq_snoop_depd                ),
@@ -5667,7 +5671,7 @@ ct_lsu_snoop_snq  x_ct_lsu_snoop_snq (
   .wmb_snq_depd_remove                (wmb_snq_depd_remove               ),
   .wmb_write_ptr                      (wmb_write_ptr                     ),
   .wmb_write_req_addr                 (wmb_write_req_addr                )
-);
+);// }}}
 
 // &Instance("ct_lsu_snoop_dummy","x_ct_lsu_snoop_dummy"); @133
 
@@ -5675,7 +5679,7 @@ ct_lsu_snoop_snq  x_ct_lsu_snoop_snq (
 //                    Other modules
 //==========================================================
 // &Instance("ct_lsu_lm","x_ct_lsu_lm"); @139
-ct_lsu_lm  x_ct_lsu_lm (
+ct_lsu_lm  x_ct_lsu_lm (// {{{
   .biu_lsu_r_id              (biu_lsu_r_id             ),
   .biu_lsu_r_resp            (biu_lsu_r_resp           ),
   .biu_lsu_r_vld             (biu_lsu_r_vld            ),
@@ -5733,10 +5737,10 @@ ct_lsu_lm  x_ct_lsu_lm (
   .wmb_ce_addr               (wmb_ce_addr              ),
   .wmb_ce_inst_size          (wmb_ce_inst_size         ),
   .wmb_lm_state_clr          (wmb_lm_state_clr         )
-);
+);// }}}
 
 // &Instance("ct_lsu_amr","x_ct_lsu_amr"); @140
-ct_lsu_amr  x_ct_lsu_amr (
+ct_lsu_amr  x_ct_lsu_amr (// {{{
   .amr_l2_mem_set     (amr_l2_mem_set    ),
   .amr_wa_cancel      (amr_wa_cancel     ),
   .cp0_lsu_amr        (cp0_lsu_amr       ),
@@ -5754,10 +5758,10 @@ ct_lsu_amr  x_ct_lsu_amr (
   .wmb_ce_ca_st_inst  (wmb_ce_ca_st_inst ),
   .wmb_ce_pop_vld     (wmb_ce_pop_vld    ),
   .wmb_ce_vld         (wmb_ce_vld        )
-);
+);// }}}
 
 // &Instance("ct_lsu_icc","x_ct_lsu_icc"); @141
-ct_lsu_icc  x_ct_lsu_icc (
+ct_lsu_icc  x_ct_lsu_icc (// {{{
   .cp0_lsu_dcache_clr                 (cp0_lsu_dcache_clr                ),
   .cp0_lsu_dcache_inv                 (cp0_lsu_dcache_inv                ),
   .cp0_lsu_dcache_read_index          (cp0_lsu_dcache_read_index         ),
@@ -5824,10 +5828,10 @@ ct_lsu_icc  x_ct_lsu_icc (
   .vb_empty                           (vb_empty                          ),
   .vb_icc_create_grnt                 (vb_icc_create_grnt                ),
   .wmb_empty                          (wmb_empty                         )
-);
+);// }}}
 
 // &Instance("ct_lsu_ctrl","x_ct_lsu_ctrl"); @142
-ct_lsu_ctrl  x_ct_lsu_ctrl (
+ct_lsu_ctrl  x_ct_lsu_ctrl (// {{{
   .cp0_lsu_dcache_pref_dist          (cp0_lsu_dcache_pref_dist         ),
   .cp0_lsu_icg_en                    (cp0_lsu_icg_en                   ),
   .cp0_lsu_l2_pref_dist              (cp0_lsu_l2_pref_dist             ),
@@ -6030,10 +6034,10 @@ ct_lsu_ctrl  x_ct_lsu_ctrl (
   .wmb_no_op                         (wmb_no_op                        ),
   .wmb_st_wb_cmplt_req               (wmb_st_wb_cmplt_req              ),
   .wmb_write_req_icc                 (wmb_write_req_icc                )
-);
+);// }}}
 
 // &Instance("ct_lsu_bus_arb","x_ct_lsu_bus_arb"); @143
-ct_lsu_bus_arb  x_ct_lsu_bus_arb (
+ct_lsu_bus_arb  x_ct_lsu_bus_arb (// {{{
   .biu_lsu_ar_ready          (biu_lsu_ar_ready         ),
   .biu_lsu_aw_vb_grnt        (biu_lsu_aw_vb_grnt       ),
   .biu_lsu_aw_wmb_grnt       (biu_lsu_aw_wmb_grnt      ),
@@ -6199,10 +6203,10 @@ ct_lsu_bus_arb  x_ct_lsu_bus_arb (
   .wmb_biu_w_strb            (wmb_biu_w_strb           ),
   .wmb_biu_w_vld             (wmb_biu_w_vld            ),
   .wmb_biu_w_wns             (wmb_biu_w_wns            )
-);
+);// }}}
 
 // &Instance("ct_lsu_pfu","x_ct_lsu_pfu"); @144
-ct_lsu_pfu  x_ct_lsu_pfu (
+ct_lsu_pfu  x_ct_lsu_pfu (// {{{
   .amr_wa_cancel             (amr_wa_cancel            ),
   .bus_arb_pfu_ar_grnt       (bus_arb_pfu_ar_grnt      ),
   .bus_arb_pfu_ar_ready      (bus_arb_pfu_ar_ready     ),
@@ -6300,10 +6304,10 @@ ct_lsu_pfu  x_ct_lsu_pfu (
   .st_da_ppn_ff              (st_da_ppn_ff             ),
   .vb_pfu_biu_req_hit_idx    (vb_pfu_biu_req_hit_idx   ),
   .wmb_pfu_biu_req_hit_idx   (wmb_pfu_biu_req_hit_idx  )
-);
+);// }}}
 
 // &Instance("ct_lsu_cache_buffer","x_ct_lsu_cache_buffer"); @145
-ct_lsu_cache_buffer  x_ct_lsu_cache_buffer (
+ct_lsu_cache_buffer  x_ct_lsu_cache_buffer (// {{{
   .cb_ld_da_data                   (cb_ld_da_data                  ),
   .cb_ld_da_data_vld               (cb_ld_da_data_vld              ),
   .cb_ld_dc_addr_hit               (cb_ld_dc_addr_hit              ),
@@ -6326,10 +6330,10 @@ ct_lsu_cache_buffer  x_ct_lsu_cache_buffer (
   .ld_dc_cb_addr_tto4              (ld_dc_cb_addr_tto4             ),
   .lsu_dcache_ld_xx_gwen           (lsu_dcache_ld_xx_gwen          ),
   .pad_yy_icg_scan_en              (pad_yy_icg_scan_en             )
-);
+);// }}}
 
 // &Instance("ct_lsu_spec_fail_predict","x_ct_lsu_spec_fail_predict"); @146
-ct_lsu_spec_fail_predict  x_ct_lsu_spec_fail_predict (
+ct_lsu_spec_fail_predict  x_ct_lsu_spec_fail_predict (// {{{
   .cp0_lsu_icg_en             (cp0_lsu_icg_en            ),
   .cpurst_b                   (cpurst_b                  ),
   .forever_cpuclk             (forever_cpuclk            ),
@@ -6349,7 +6353,7 @@ ct_lsu_spec_fail_predict  x_ct_lsu_spec_fail_predict (
   .st_da_sf_no_spec_miss_gate (st_da_sf_no_spec_miss_gate),
   .st_da_sf_spec_chk          (st_da_sf_spec_chk         ),
   .st_da_sf_spec_chk_gate     (st_da_sf_spec_chk_gate    )
-);
+);// }}}
 
 
 //==========================================================
