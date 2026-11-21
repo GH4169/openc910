@@ -1,0 +1,33 @@
+// C910 普通整数 Load 遇到 D-uTLB miss，且在 AG 采样时 refill 正忙。
+// 图中 refill 于 C5 进入 IDLE。第 2 项在 C6 可重新仲裁，C7 回到 pipe3 RF。
+// 示例重试时翻译与 D-cache 均命中。TLB 等待长度取示例值。
+// 每列为一个 forever_cpuclk 周期。x 表示该拍未标注信号值。
+{
+  signal: [
+    {"name":"forever_cpuclk","wave":"p..........."},
+    ["Pipe3",
+      {"name":"idu_lsu_rf_pipe3_sel","wave":"10.....10..."},
+      {"name":"idu_lsu_rf_pipe3_lch_entry","wave":"4x.....4x...","data":["0x004","0x004"]},
+    ],
+    ["MMU",
+      {"name":"mmu_lsu_pa0_vld","wave":"x0x.....1x.."},
+      {"name":"mmu_lsu_tlb_busy","wave":"1....0......"},
+      {"name":"ld_dc_utlb_miss_vld","wave":"0.10........"},
+    ],
+    ["LSU→IDU",
+      {"name":"lsu_idu_tlb_busy[2]","wave":"0.10........","node":"..A........."},
+      {"name":"lsu_idu_tlb_wakeup[2]","wave":"0....1......","node":".....C......"},
+      {"name":"lsu_idu_wakeup[2]","wave":"0..........."},
+      {"name":"lsu_idu_lsiq_pop0_vld","wave":"0.........10"},
+    ],
+    ["LSIQ",
+      {"name":"lsiq_entry2_tlb_busy","wave":"0..1..0.....","node":"...B........"},
+      {"name":"lsiq_entry2_frz","wave":"1.....01...x","node":"......D....."},
+      {"name":"lsiq_entry2_issue_en","wave":"0.....10...."},
+      {"name":"lsiq_entry2_vld","wave":"1..........0"},
+    ],
+  ],
+  head: { text: 'C910 Load μTLB miss 与 busy 等待', tock: 0 },
+  edge: ["A~>B","C~>D"],
+  config: { skin: 'narrow', hscale: 3 },
+}

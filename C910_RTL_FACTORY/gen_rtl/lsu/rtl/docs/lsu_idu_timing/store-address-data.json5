@@ -1,0 +1,38 @@
+// C910 普通单段整数 Store。地址正常创建 SQ，写数据已就绪。
+// 示例选 LSIQ 第 2 项、SDIQ 第 5 项。ST DC 与 pipe5 RF 同拍匹配。
+// RTU 执行完成指示与 SQ、WMB 后续排出有独立条件。
+// 每列为一个 forever_cpuclk 周期。x 表示该拍未标注信号值。
+{
+  signal: [
+    {"name":"forever_cpuclk","wave":"p....."},
+    ["Pipe4",
+      {"name":"idu_lsu_rf_pipe4_sel","wave":"10...."},
+      {"name":"idu_lsu_rf_pipe4_lch_entry","wave":"4x....","data":["0x004"]},
+      {"name":"idu_lsu_rf_pipe4_sdiq_entry","wave":"4x....","data":["0x020"]},
+    ],
+    ["SDIQ",
+      {"name":"ctrl_sdiq_rf_staddr_rdy_set","wave":"10...."},
+      {"name":"sdiq_entry5_issue_en","wave":"010..."},
+    ],
+    ["ST DC",
+      {"name":"lsu_idu_dc_staddr_vld","wave":"0.10.."},
+      {"name":"lsu_idu_dc_sdiq_entry","wave":"x.4x..","data":["0x020"]},
+      {"name":"lsu_idu_dc_staddr1_vld","wave":"x.0x.."},
+    ],
+    ["Pipe5",
+      {"name":"idu_lsu_rf_pipe5_sel","wave":"0.10.."},
+      {"name":"idu_lsu_rf_pipe5_sdiq_entry","wave":"x.4x..","data":["0x020"]},
+      {"name":"idu_lsu_rf_pipe5_src0","wave":"x.5x..","data":["0xa5"]},
+    ],
+    ["Pop",
+      {"name":"lsu_idu_ex1_sdiq_pop_vld","wave":"0..10."},
+      {"name":"lsu_idu_ex1_sdiq_entry","wave":"x..4x.","data":["0x020"]},
+      {"name":"lsu_idu_lsiq_pop1_vld","wave":"0..10."},
+      {"name":"lsu_idu_lsiq_pop_entry","wave":"0..40.","data":["0x004"]},
+    ],
+    {"name":"lsu_rtu_wb_pipe4_cmplt","wave":"0...10"},
+  ],
+  head: { text: 'C910 Store 地址与写数据配对', tock: 0 },
+  edge: [],
+  config: { skin: 'narrow', hscale: 4 },
+}

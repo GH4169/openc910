@@ -1,0 +1,37 @@
+// C910 普通整数 SD 跨 16 B 边界且位于同一页。例 VA 0x100c，长度 8 B，允许非对齐访问。
+// 两段沿用 LSIQ 第 2 项、SDIQ 第 5 项。图中两段写数据都在对应 ST DC 拍通过 pipe5 RF。
+// 两次发射之间的拍数随仲裁和写数据就绪而变化。
+// 每列为一个 forever_cpuclk 周期。x 表示该拍未标注信号值。
+{
+  signal: [
+    {"name":"forever_cpuclk","wave":"p........."},
+    ["Pipe4",
+      {"name":"idu_lsu_rf_pipe4_sel","wave":"10...10..."},
+      {"name":"idu_lsu_rf_pipe4_unalign_2nd","wave":"0x...1x...","node":".....B...."},
+    ],
+    ["ST DC",
+      {"name":"lsu_idu_dc_staddr_vld","wave":"0.10...10."},
+      {"name":"lsu_idu_dc_staddr1_vld","wave":"x.0x...1x."},
+      {"name":"lsu_idu_dc_staddr_unalign","wave":"x.1x...0x."},
+    ],
+    ["Pipe5",
+      {"name":"idu_lsu_rf_pipe5_sel","wave":"0.10...10."},
+      {"name":"idu_lsu_rf_pipe5_unalign","wave":"x.1x...1x."},
+      {"name":"idu_lsu_rf_pipe5_stdata1_vld","wave":"x.0x...1x."},
+    ],
+    ["SD EX1",
+      {"name":"lsu_idu_ex1_sdiq_frz_clr","wave":"0..10....."},
+      {"name":"lsu_idu_ex1_sdiq_pop_vld","wave":"0.......10"},
+      {"name":"lsu_idu_ex1_sdiq_entry","wave":"x..4x...4x","data":["0x020","0x020"]},
+    ],
+    ["ST DA",
+      {"name":"lsu_idu_secd[2]","wave":"0..10.....","node":"...A......"},
+      {"name":"lsu_idu_wakeup[2]","wave":"0..10....."},
+      {"name":"lsu_idu_lsiq_pop1_vld","wave":"0.......10"},
+      {"name":"lsu_idu_lsiq_pop_entry","wave":"0.......40","data":["0x004"]},
+    ],
+  ],
+  head: { text: 'C910 跨 16 B 的两段 Store', tock: 0 },
+  edge: ["A~>B"],
+  config: { skin: 'narrow', hscale: 3 },
+}

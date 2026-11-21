@@ -1,0 +1,31 @@
+// C910 普通可缓存整数 Load，在 LD DC 请求一个 LQ 项。
+// 示例第 2 项在两次尝试时均非最老。C5 已有 Load 提交，LQ 空出一项，C9 该项重试申请成功。
+// 等待长度和其他项目行为取示例值。
+// 每列为一个 forever_cpuclk 周期。x 表示该拍未标注信号值。
+{
+  signal: [
+    {"name":"forever_cpuclk","wave":"p..........."},
+    ["Pipe3",
+      {"name":"idu_lsu_rf_pipe3_sel","wave":"10.....10..."},
+      {"name":"idu_lsu_rf_pipe3_lch_entry","wave":"4x.....4x...","data":["0x004","0x004"]},
+    ],
+    ["LD DC",
+      {"name":"ld_dc_lq_create_dp_vld","wave":"0.10.....10."},
+      {"name":"ld_dc_da_inst_vld","wave":"0........10."},
+    ],
+    ["LSU→IDU",
+      {"name":"lsu_idu_lq_full[2]","wave":"0.10........","node":"..A........."},
+      {"name":"lsu_idu_lq_not_full","wave":"0....1....0.","node":".....C......"},
+      {"name":"lsu_idu_lsiq_pop0_vld","wave":"0.........10"},
+    ],
+    ["LSIQ",
+      {"name":"lsiq_entry2_lq_full","wave":"0..1..0.....","node":"...B..D....."},
+      {"name":"lsiq_entry2_frz","wave":"1.....01...x"},
+      {"name":"lsiq_entry2_issue_en","wave":"0.....10...."},
+      {"name":"lsiq_entry2_vld","wave":"1..........0"},
+    ],
+  ],
+  head: { text: 'C910 Load LQ 满后重新发射', tock: 0 },
+  edge: ["A~>B","C~>D"],
+  config: { skin: 'narrow', hscale: 3 },
+}
