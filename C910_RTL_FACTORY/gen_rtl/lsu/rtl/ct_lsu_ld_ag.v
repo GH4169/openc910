@@ -159,7 +159,7 @@ module ct_lsu_ld_ag(// {{{
 );// }}}
 
 // &Ports; @29
-input           cp0_lsu_cb_aclr_dis;                
+input           cp0_lsu_cb_aclr_dis;                // {{{
 input           cp0_lsu_da_fwd_dis;                 
 input           cp0_lsu_dcache_en;                  
 input           cp0_lsu_icg_en;                     
@@ -299,10 +299,10 @@ output          lsu_mmu_abort0;
 output  [6 :0]  lsu_mmu_id0;                        
 output          lsu_mmu_st_inst0;                   
 output  [63:0]  lsu_mmu_va0;                        
-output          lsu_mmu_va0_vld;                    
+output          lsu_mmu_va0_vld;                    // }}}
 
 // &Regs; @30
-reg     [3 :0]  bank_en_low_ori;                    
+reg     [3 :0]  bank_en_low_ori;                    // {{{
 reg     [3 :0]  ld_ag_access_size_ori;              
 reg             ld_ag_align;                        
 reg             ld_ag_already_cross_page_ldr_imme;  
@@ -527,7 +527,7 @@ wire    [6 :0]  rtu_yy_xx_commit1_iid;
 wire            rtu_yy_xx_commit2;                  
 wire    [6 :0]  rtu_yy_xx_commit2_iid;              
 wire            rtu_yy_xx_flush;                    
-wire    [6 :0]  st_ag_iid;                          
+wire    [6 :0]  st_ag_iid;                          // }}}
 
 
 parameter BYTE        = 2'b00,

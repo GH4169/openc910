@@ -45,6 +45,8 @@
 
 `IDU pipe3 → LD AG → LD DC → LD DA → LD WB` 是主流水。LD DC 同时创建 LQ entry 并检查 SQ/WMB 依赖。LD DA 在 D-cache、SQ/WMB 前递、RB/LFB 返回和异常结果之间选择最终数据。发生 miss 或慢路径时由 RB 保存未完成操作，LFB 接收总线返回并重新唤醒路径。
 
+AG 的端口、地址计算和重发算例见 [LD AG 代码导读](ld_ag_guide.md)。
+
 ### Store
 
 Store 地址从 `IDU pipe4` 进入 `ST AG`，写数据从 `IDU pipe5` 进入 `SD EX1`。`ST DC` 创建 SQ entry，SQ 等待地址和数据配对。RTU commit 后，满足数据有效和顺序条件的 SQ entry 经 `WMB CE` 决定新建或合并 WMB entry。WMB 通过 D-cache arbiter 写 L1，或通过 bus arbiter 发出 BIU 写请求。

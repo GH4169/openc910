@@ -1,0 +1,428 @@
+[timestart] 34174000
+[size] 1760 892
+[pos] -1 -1
+*-18.098680 34235000 34235000 34705000 35185000 35275000 35595000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[markername] AD-cache miss
+[markername] BRefill
+[markername] CD-cache hit
+[markername] DWMB forward
+[markername] EReadback WB
+[treeopen] tb.
+[treeopen] tb.x_soc.
+[treeopen] tb.x_soc.x_cpu_sub_system_axi.
+[treeopen] tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.
+[treeopen] tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.
+[treeopen] tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.
+[treeopen] tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.
+[treeopen] tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.
+[sst_width] 276
+[signals_width] 420
+[sst_expanded] 1
+[sst_vpaned_height] 235
+@800200
+-Core 0 | Overview
+@28
+tb.clk
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.cp0_lsu_dcache_en
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe3_sel
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_ag_inst_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_dc_inst_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_da_inst_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_da_dcache_hit
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_da.ld_da_restart_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_da_rb_create_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_da.ld_da_fwd_wmb_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_idu_wb_pipe3_wb_preg_vld
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_idu_wb_pipe3_wb_preg_data[63:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe4_sel
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_da_inst_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_da_fence_inst
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.sd_ex1_inst_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_wmb.wmb_write_dcache_success
+@1000200
+-Core 0 | Overview
+@c00200
+-Load | RF (pipe3)
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe3_sel
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe3_gateclk_sel
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe3_iid[6:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe3_pc[14:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe3_lch_entry[11:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe3_oldest
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe3_preg[6:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe3_src0[63:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe3_offset[11:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe3_inst_size[1:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe3_sign_extend
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe3_inst_ldr
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe3_src1[63:0]
+@1401200
+-Load | RF (pipe3)
+@c00200
+-Load | AG
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_ag_inst_vld
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_ag_iid[6:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_ag.ld_ag_va[63:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_mmu_va0_vld
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_mmu_va0[63:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.mmu_lsu_pa0_vld
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.mmu_lsu_pa0[27:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.mmu_lsu_ca0
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.mmu_lsu_page_fault0
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_mmu_abort0
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_ag_dc_addr0[39:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_ag_dc_bytes_vld[15:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_ag_dc_rot_sel[3:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_ag_boundary
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_ag_secd
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ag_dcache_arb_ld_tag_req
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ag_dcache_arb_ld_tag_idx[8:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ag_dcache_arb_ld_data_req[7:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.dcache_arb_ag_ld_sel
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_ag.ld_ag_stall_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_ag_dc_inst_vld
+@1401200
+-Load | AG
+@c00200
+-Load | DC / LQ
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_dc_inst_vld
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_dc_iid[6:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_dc_addr0[39:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_dc.ld_dc_hit_way0
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_dc.ld_dc_hit_way1
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_dc.ld_dc_dcache_hit
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_dc.ld_dc_old
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_dc_lq_create_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_lq.lq_create_success
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lq_ld_dc_full
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.sq_ld_dc_fwd_req
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.wmb_ld_dc_fwd_req
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_dc_fwd_sq_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_dc_fwd_wmb_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_dc.ld_dc_utlb_miss_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_dc.ld_dc_tlb_busy_restart_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_dc.ld_dc_lq_full_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_dc.ld_dc_depd_imme_restart_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_dc.ld_dc_restart_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_dc_da_inst_vld
+@1401200
+-Load | DC / LQ
+@c00200
+-Load | DA
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_da_inst_vld
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_da_iid[6:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_da_addr[39:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_da_page_ca
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_da_dcache_hit
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_da.ld_da_fwd_sq_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_da.ld_da_fwd_sq_bypass_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_da.ld_da_fwd_wmb_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_da.ld_da_data_vld
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_da_wb_data[63:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_idu_da_pipe3_fwd_preg_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_da_wb_cmplt_req
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_da_wb_data_req
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_da.ld_da_wait_fence_req
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_da.ld_da_restart_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_da.ld_da_expt_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_da_rb_create_vld
+@1401200
+-Load | DA
+@c00200
+-Load | RB / BIU / LFB
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_da_rb_create_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_rb.rb_create_ld_success
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.rb_ld_da_full
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.rb_biu_ar_req
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_biu_ar_req
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_biu_ar_addr[39:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_biu_ar_id[4:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.biu_lsu_ar_ready
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.biu_lsu_r_vld
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.biu_lsu_r_id[4:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.biu_lsu_r_last
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.biu_lsu_r_data[127:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.rb_ld_wb_data_req
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.rb_ld_wb_data_iid[6:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.rb_ld_wb_data[63:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lfb_dcache_arb_ld_req
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lfb_dcache_arb_ld_tag_req
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lfb_dcache_arb_ld_tag_idx[8:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.dcache_arb_lfb_ld_grnt
+@1401200
+-Load | RB / BIU / LFB
+@c00200
+-Load | WB
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_da_wb_data_req
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.rb_ld_wb_data_req
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_wb.ld_wb_da_data_grnt
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ld_wb_rb_data_grnt
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_idu_wb_pipe3_wb_preg_vld
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_ld_wb.ld_wb_data_iid[6:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_idu_wb_pipe3_wb_preg[6:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_idu_wb_pipe3_wb_preg_data[63:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_rtu_wb_pipe3_cmplt
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_rtu_wb_pipe3_iid[6:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_rtu_wb_pipe3_expt_vld
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_rtu_wb_pipe3_expt_vec[4:0]
+@1401200
+-Load | WB
+@c00200
+-Store | RF (pipe4)
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe4_sel
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe4_iid[6:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe4_pc[14:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe4_lch_entry[11:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe4_sdiq_entry[11:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe4_staddr
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe4_sync_fence
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe4_src0[63:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe4_offset[11:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe4_inst_size[1:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe4_inst_str
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe4_src1[63:0]
+@1401200
+-Store | RF (pipe4)
+@c00200
+-Store | AG
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_ag_inst_vld
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_ag_iid[6:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_st_ag.st_ag_va[63:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_mmu_va1_vld
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_mmu_va1[63:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.mmu_lsu_pa1_vld
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.mmu_lsu_pa1[27:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.mmu_lsu_ca1
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.mmu_lsu_page_fault1
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_mmu_abort1
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_ag_dc_addr0[39:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_ag_dc_bytes_vld[15:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_ag_dc_rot_sel[3:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_ag_boundary
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_ag_secd
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ag_dcache_arb_st_tag_req
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ag_dcache_arb_st_tag_idx[8:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.ag_dcache_arb_st_dirty_req
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.dcache_arb_ag_st_sel
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_st_ag.st_ag_stall_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_ag_dc_inst_vld
+@1401200
+-Store | AG
+@c00200
+-Store | DC
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_dc_inst_vld
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_dc_iid[6:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_dc_addr0[39:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_dc_bytes_vld[15:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_dc_sdid[3:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_dc_sq_create_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.sq_st_dc_full
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_st_dc.st_dc_utlb_miss_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_st_dc.st_dc_sq_full_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_st_dc.st_dc_restart_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_idu_dc_staddr_vld
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_idu_dc_sdiq_entry[11:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_dc_da_tag0_hit
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_dc_da_tag1_hit
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_dc_da_dcache_dirty_array[6:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_dc_da_inst_vld
+@1401200
+-Store | DC
+@c00200
+-Store | DA
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_da_inst_vld
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_da_iid[6:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_da_addr[39:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_st_da.st_da_st_inst
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_da_fence_inst
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_da_dcache_hit
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_da_sq_no_restart
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_st_da.st_da_restart_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_st_da.st_da_expt_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_da_wb_cmplt_req
+@1401200
+-Store | DA
+@c00200
+-Store | RF (pipe5) / SD EX1
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe5_sel
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe5_sdiq_entry[11:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.idu_lsu_rf_pipe5_src0[63:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.sd_rf_ex1_sdid[3:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.sd_ex1_inst_vld
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.sd_ex1_data[63:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_idu_ex1_sdiq_entry[11:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_idu_ex1_sdiq_pop_vld
+@1401200
+-Store | RF (pipe5) / SD EX1
+@c00200
+-Store | SQ
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_dc_sq_create_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_sq.sq_create_success
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_sq.sq_create_ptr[11:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_sq.sq_entry_vld[11:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_sq.sq_entry_cmit[11:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.sq_pop_ptr[11:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.sq_pop_addr[39:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.sq_pop_bytes_vld[15:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.sq_pop_sync_fence
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.sq_ld_dc_fwd_req
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.sq_wmb_pop_to_ce_req
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.wmb_sq_pop_to_ce_grnt
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_sq.x_ct_lsu_sq_entry_0.sq_entry_iid[6:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_sq.x_ct_lsu_sq_entry_0.sq_entry_sdid[3:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_sq.x_ct_lsu_sq_entry_0.sq_entry_data_set
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_sq.x_ct_lsu_sq_entry_0.sq_entry_data_vld
+@1401200
+-Store | SQ
+@c00200
+-Store | WMB
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.wmb_ce_create_vld
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.wmb_ce_vld
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.wmb_ce_iid[6:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.wmb_ce_addr[39:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.wmb_ce_create_wmb_req
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.wmb_ce_merge_wmb_req
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.wmb_ld_dc_fwd_req
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.wmb_fwd_bytes_vld[15:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.wmb_write_req_addr[39:0]
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_wmb.wmb_write_dcache_bytes_vld[15:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.wmb_dcache_arb_ld_req
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.dcache_arb_wmb_ld_grnt
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.x_ct_lsu_wmb.wmb_write_dcache_success
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.wmb_biu_aw_req
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.wmb_biu_w_req
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.wmb_st_wb_cmplt_req
+@1401200
+-Store | WMB
+@c00200
+-Store | WB
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_da_wb_cmplt_req
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.wmb_st_wb_cmplt_req
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.st_wb_wmb_cmplt_grnt
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_rtu_wb_pipe4_cmplt
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_rtu_wb_pipe4_iid[6:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_rtu_wb_pipe4_expt_vld
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.lsu_rtu_wb_pipe4_expt_vec[4:0]
+@1401200
+-Store | WB
+@c00200
+-Core 0 | Commit and retire
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.rtu_yy_xx_flush
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.rtu_yy_xx_commit0
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.rtu_yy_xx_commit0_iid[6:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.rtu_yy_xx_commit1
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.rtu_yy_xx_commit1_iid[6:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.rtu_yy_xx_commit2
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.x_ct_top_0.x_ct_core.x_ct_lsu_top.rtu_yy_xx_commit2_iid[6:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.core0_pad_retire0
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.core0_pad_retire0_pc[39:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.core0_pad_retire1
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.core0_pad_retire1_pc[39:0]
+@28
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.core0_pad_retire2
+@22
+tb.x_soc.x_cpu_sub_system_axi.x_rv_integration_platform.x_cpu_top.core0_pad_retire2_pc[39:0]
+@1401200
+-Core 0 | Commit and retire
+[pattern_trace] 1
+[pattern_trace] 0
